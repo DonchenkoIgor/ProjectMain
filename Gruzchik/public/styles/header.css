@@ -1,0 +1,52 @@
+.header-top {
+    display: flex;
+    justify-content: space-between; /* Это распределит пространство между логотипом и контактной информацией */
+    align-items: center;
+    padding: 10px 0;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.logo {
+    flex: 1; /* Это позволит логотипу занимать доступное пространство слева */
+}
+
+.contact-info {
+    flex: 2; /* Это позволит контактам занимать больше пространства справа, можно настроить по желанию */
+    text-align: right; /* Это выравнивает текст контактов вправо */
+}
+
+.contact-info p {
+    margin: 0;
+    color: #0059ff;
+}
+
+.contact-info p + p {
+    margin-top: 5px;
+}
+
+.contact-info a {
+    color: #ea0d0d;
+    text-decoration: none;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    margin-top: 10px; /* Отступ для иконок соцсетей */
+}
+
+.social-icons a {
+    color: #ff7e00;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.order-button {
+    background-color: #ff7e00;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
