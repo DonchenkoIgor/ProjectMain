@@ -1,12 +1,13 @@
 @extends('layouts.main')
 
 @section('content')
+
     <div class="container my-5">
         <h2 class="text-center">Вантажоперевезення Київ - перевезення вантажів недорого:</h2>
         <div class="tariff-card mt-4">
             <img src="{{ asset('images/logo5.jpg') }}" alt="Вантажник" />
             <div class="tariff-card-content">
-                <h3>Вартість 1 години роботи вантажника:</h3>
+                <p class="orange-text"><strong>Вартість 1 години роботи вантажника:</strong></p>
                 <p><strong>Від 200 грн</strong></p>
                 <p>Мінімальне замовлення: <strong>2 години</strong></p>
                 <ul>
@@ -23,12 +24,18 @@
         </div>
     </div>
 
+    <style>
+        .orange-text {
+            color: #f3510c; /* Оранжевый цвет */
+        }
+    </style>
+
     <div class="container my-5">
         <h2 class="text-center">Якісна робота, комерційні вантажоперевезення у Києві:</h2>
         <div class="tariff-card mt-4">
             <img src="{{ asset('images/logo6.jpg') }}" alt="Вантажник" />
             <div class="tariff-card-content">
-                <p><strong>Транспортна компанія «Вантажник» вантажоперевезення Київ на 1 годину багато років працює на українському ринку, надаючи повний сервіс послуг вантажоперевезень</strong></p>
+                <p class="orange-text"><strong>Транспортна компанія «Вантажник» вантажоперевезення Київ на 1 годину багато років працює на українському ринку, надаючи повний сервіс послуг вантажоперевезень:</strong></p>
                 <ul>
                     <li>Оперативний відгук диспетчера</li>
                     <li>Організація та здійснення замовлення машини</li>
@@ -42,9 +49,11 @@
             </div>
         </div>
     </div>
+
+
     <div class="my-5 text-center">
         <h2 class="text-center">Тарифи на послуги вантажників у Києві</h2>
-        <p class="text-center">Правильний пошук транспорту – важлива складова вдалого переїзду, тому маємо великий вибір вантажного транспорту для кожного окремого випадку.</p>
+        <p class="text-center orange-text">Правильний пошук транспорту – важлива складова вдалого переїзду, тому маємо великий вибір вантажного транспорту для кожного окремого випадку.</p>
         <table class="table table-bordered table-striped text-center">
             <thead class="table-dark">
             <tr>

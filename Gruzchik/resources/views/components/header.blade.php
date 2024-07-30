@@ -1,3 +1,5 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
 <style>
@@ -9,6 +11,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 20px 0;
+        flex-wrap: wrap;
     }
     .logo img {
         max-height: 80px;
@@ -17,7 +20,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        margin-left: 600px; /* Добавлено для смещения вправо */
+        margin-left: auto;
     }
     .contact-info p {
         margin: 0;
@@ -28,9 +31,8 @@
         color: #333;
     }
     .fa-clock {
-        color: #f3510c; /* Замените на нужный цвет */
+        color: #f3510c;
     }
-
     .work-time {
         align-self: flex-start;
     }
@@ -41,6 +43,26 @@
         text-decoration: none;
         border-radius: 5px;
     }
+    @media (max-width: 768px) {
+        .header-top {
+            flex-direction: column;
+            align-items: center;
+        }
+        .contact-info {
+            align-items: center;
+            text-align: center;
+            margin-left: 0;
+        }
+        .order-button {
+            margin-top: 40px; /* Увеличиваем отступ сверху на мобильной версии */
+        }
+    }
+    @media (min-width: 769px) {
+        .contact-info {
+            margin-right: 20px;
+        }
+
+    }
 </style>
 
 <body>
@@ -49,7 +71,7 @@
         <div class="header-top">
             <div class="logo">
                 <a href="{{ url('/') }}">
-                    <img src="{{ asset('images/logo1.png') }}" alt="Вантажник" />
+                    <img src="{{ asset('images/logo1.png') }}" alt="Вантажник">
                 </a>
             </div>
             <div class="contact-info">
@@ -69,4 +91,3 @@
 </header>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>

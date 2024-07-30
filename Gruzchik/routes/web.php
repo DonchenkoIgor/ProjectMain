@@ -14,3 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/' , [\App\Http\Controllers\PageController::class, 'index']);
+
+Route::get('/transport', [\App\Http\Controllers\TransportController::class, 'transport'])->name('transport');
