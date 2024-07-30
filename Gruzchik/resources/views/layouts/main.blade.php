@@ -23,6 +23,48 @@
 
 
     <style>
+
+        .tariff-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .tariff-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .tariff-card-content {
+            margin-top: 20px;
+        }
+
+        .tariff-card h3 {
+            margin-top: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .tariff-card {
+                flex-direction: row;
+                text-align: left;
+            }
+
+            .tariff-card img {
+                max-width: 50%;
+                margin-right: 20px;
+            }
+
+            .tariff-card-content {
+                margin-top: 0;
+            }
+        }
+
         .tariff-card {
             background-color: #f8f9fa;
             border-radius: 5px;
@@ -199,6 +241,17 @@
             color: #0059ff; /* Установите нужный цвет для ссылок */
         }
 
+        .dropdown-menu {
+            min-width: 200px;
+        }
+
+        .navbar-nav .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            padding: 10px 20px;
+        }
 
     </style>
 
@@ -275,51 +328,10 @@
 
     @include('components.header')
 
-<nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark">
-    <div class="container">
-        <a class="navbar-brand d-md-none" href="#">
-            <svg class="bi" width="24" height="24"><use xlink:href="#aperture"/></svg>
-            Aperture
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasLabel">Aperture</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="navbar-nav flex-grow-1 justify-content-between">
-                    <li class="nav-item"><a class="nav-link" href="#">Головна</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Послуги</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Транспорт</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Ціни</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Упаковка</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Вакансії</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"></a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</nav>
 
 <main>
-    <div class="position-relative overflow-hidden p-0 m-0 text-center bg-body-tertiary">
-        <div class="position-relative overflow-hidden p-0 m-0 text-center bg-body-tertiary full-background">
-            <div class="col-md-4 p-lg-5 mx-auto my-5">
-                <h1 class="display-3 fw-bold">Послуги вантажників у Києві</h1>
-                <h3 class="fw-normal mb-3">Переїзд у нову квартиру</h3>
-            </div>
-            <div class="product-device shadow-sm d-none d-md-block"></div>
-            <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-        </div>
-    </div>
-        <div class="product-device shadow-sm d-none d-md-block"></div>
-        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-
+    @include('components.mainLogo')
     @yield('content')
-
 
 </main>
 
