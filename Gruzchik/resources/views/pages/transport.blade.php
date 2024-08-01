@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Транспорт')
+@section('description', 'Обери свій транспорт')
 @section('content')
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

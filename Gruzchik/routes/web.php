@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/' , [\App\Http\Controllers\PageController::class, 'index']);
 
 Route::get('/transport', [\App\Http\Controllers\TransportController::class, 'transport'])->name('transport');
+Route::get('/package', [\App\Http\Controllers\PackageController::class, 'package'])->name('package');
+Route::get('/price',[\App\Http\Controllers\PriceController::class, 'price'])->name('price');
