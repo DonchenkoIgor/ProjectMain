@@ -1,7 +1,3 @@
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -42,6 +38,7 @@
         padding: 10px 20px;
         text-decoration: none;
         border-radius: 5px;
+        cursor: pointer;
     }
     @media (max-width: 768px) {
         .header-top {
@@ -54,14 +51,15 @@
             margin-left: 0;
         }
         .order-button {
-            margin-top: 40px; /* Увеличиваем отступ сверху на мобильной версии */
+            font-size: 14px; /* Уменьшите размер шрифта */
+            padding: 8px 16px; /* Уменьшите внутренние отступы */
+            margin-top: 20px; /* Увеличьте отступ сверху для мобильных устройств */
         }
     }
     @media (min-width: 769px) {
         .contact-info {
             margin-right: 20px;
         }
-
     }
 </style>
 
@@ -84,10 +82,42 @@
                 </div>
             </div>
             <div>
-                <a class="order-button" href="order.html">ЗАКАЗАТЬ УСЛУГУ</a>
+                <a class="order-button" data-bs-toggle="modal" data-bs-target="#orderModal">ЗАМОВИТИ ПЕРЕЇЗД</a>
             </div>
         </div>
     </div>
 </header>
+
+<div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="orderModalLabel">Оставить заявку</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Имя</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Телефон</label>
+                        <input type="tel" class="form-control" id="phone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Сообщение</label>
+                        <textarea class="form-control" id="message" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 </body>

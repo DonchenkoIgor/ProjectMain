@@ -98,7 +98,7 @@
     }
 
     .full-background {
-        background-image: url('images/logo4.jpg');
+        background-image: url('{{ asset('images/logo4.jpg') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -280,34 +280,18 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="#" id="servicesDropdown" role="button">Послуги</a>
                         <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                            <li><a class="dropdown-item" href="#">Офісний переїзд</a></li>
-                            <li><a class="dropdown-item" href="#">Вантажники</a></li>
-                            <li><a class="dropdown-item" href="#">Перевезення сейфів та банкоматів</a></li>
-                            <li><a class="dropdown-item" href="#">Перевезення меблів</a></li>
-                            <li><a class="dropdown-item" href="#">Завантаження та вивантаження</a></li>
-                            <li><a class="dropdown-item" href="#">Вивыз мотлоху з квартири</a></li>
-                            <li><a class="dropdown-item" href="#">Вивіз будівельного сміття</a></li>
-                            <li><a class="dropdown-item" href="#">Малотоннажні вантажоперевезення</a></li>
-                            <li><a class="dropdown-item" href="#">Вивіз старих меблів</a></li>
-                            <li><a class="dropdown-item" href="#">Транспортні послуги</a></li>
-                            <li><a class="dropdown-item" href="#">Квартирний переїзд</a></li>
-                            <li><a class="dropdown-item" href="#">Підйом будматеріалів</a></li>
-                            <li><a class="dropdown-item" href="#">Перевезення піаніно</a></li>
-                            <li><a class="dropdown-item" href="#">Вантажне таксі</a></li>
-                            <li><a class="dropdown-item" href="#">Складські роботи</a></li>
-                            <li><a class="dropdown-item" href="#">Перевезення холодильника</a></li>
-                            <li><a class="dropdown-item" href="#">Замовлення газелі</a></li>
-                            <li><a class="dropdown-item" href="#">Вантажоперевезення з гідратором</a></li>
-                            <li><a class="dropdown-item" href="#">Дачний переїзд</a></li>
-
-
+                            <li><a class="dropdown-item" href="{{route('moving')}}">Переїзд</a></li>
+                            <li><a class="dropdown-item" href="{{route('transportation')}}">Перевезення майна</a></li>
+                            <li><a class="dropdown-item" href="{{route('removal')}}">Вивіз не потрібних речей</a></li>
+                            <li><a class="dropdown-item" href="{{route('loadingUnloading')}}">Завантаження та вивантаження</a></li>
+                            <li><a class="dropdown-item" href="{{route('cargoTaxi')}}">Вантажне таксі</a></li>
+                            <li><a class="dropdown-item" href="{{route('warehouseWork')}}">Складські роботи</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{route('transport')}}">Транспорт</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('price')}}">Ціни</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('package')}}">Упаковка</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Вакансії</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"></a></li>
                 </ul>
             </div>
         </div>
