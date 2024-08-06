@@ -4,7 +4,6 @@
 @section('title', 'Ціни')
 
 @section('content')
-
     <style>
         .tariffs-container {
             padding: 0; /* Удалите внутренние отступы, если они не нужны */

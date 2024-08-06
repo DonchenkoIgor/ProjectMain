@@ -8,6 +8,7 @@
             padding: 1px; /* Отступы вокруг контейнера */
             background-color: #ffffff; /* Белый фон для контейнера */
             width: 100%; /* Занимать всю ширину родительского элемента */
+            flex-wrap: wrap;
         }
 
         .elementor-row {
@@ -31,6 +32,7 @@
             max-width: 30%; /* Максимальная ширина 30% */
             transition: transform 0.3s ease, background-color 0.3s ease; /* Плавный переход */
             text-align: center; /* Центрирование текста по горизонтали */
+            box-sizing: border-box;
         }
 
         .elementor-column:hover {
@@ -53,6 +55,67 @@
         .orange-text {
             color: #f3510c; /* Оранжевый цвет */
         }
+        .order-button {
+            background-color: #f3510c;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .order-button {
+                font-size: 14px; /* Уменьшите размер шрифта */
+                padding: 8px 16px; /* Уменьшите внутренние отступы */
+                margin-top: 20px; /* Увеличьте отступ сверху для мобильных устройств */
+            }
+            .elementor-column {
+                flex: 1 1 45%;
+                max-width: 45%;
+            }
+        }
+        @media (max-width: 576px) {
+            .elementor-column {
+                flex: 1 1 100%;
+                max-width: 100%;
+                padding: 15px;
+            }
+
+            .order-button {
+                font-size: 14px;
+                padding: 8px 16px;
+                margin-top: 20px;
+            }
+
+            .container {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+        @media (max-width: 768px) {
+            .tariff-card {
+                padding: 15px;
+            }
+
+            .tariff-card-content {
+                padding: 8px;
+            }
+        }
+        @media (max-width: 576px) {
+            .tariff-card {
+                padding: 10px;
+            }
+
+            .tariff-card-content {
+                padding: 5px;
+            }
+
+            .container {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+
     </style>
 
     <div class="container my-5">
@@ -111,7 +174,7 @@
                         <div class="elementor-element elementor-widget-image">
                             <div class="elementor-widget-container">
                                 <div class="elementor-image">
-                                    <img width="64" height="64" src="https://mypereezd.dp.ua/wp-content/uploads/elementor/thumbs/truck-pldn98cc1jowxqfmwp9fhjt5gvct99olk6kcmpjo8w.png" title="truck" alt="truck">
+                                    <img width="64" height="64" src="https://mypereezd.dp.ua/wp-content/uploads/elementor/thumbs/truck-pldn98cc1jowxqfmwp9fhjt5gvct99olk6kcmpjo8w.png" class="attachment-large size-large" alt="Главная">
                                 </div>
                             </div>
                         </div>
@@ -163,4 +226,40 @@
             </div>
         </div>
     </div>
+
+        <div class="d-flex justify-content-center my-5">
+            <a class="order-button" data-bs-toggle="modal" data-bs-target="#orderModal">РОЗРАХУВАТИ ВАРТІСТЬ</a>
+        </div>
+
+        <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="orderModalLabel">ЗАМОВИТИ ПЕРЕЇЗД</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Имя</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Телефон</label>
+                                <input type="tel" class="form-control" id="phone" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Сообщение</label>
+                                <textarea class="form-control" id="message" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 @endsection
