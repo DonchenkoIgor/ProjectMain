@@ -19,6 +19,7 @@ Route::get('/transport', [\App\Http\Controllers\TransportController::class, 'tra
 Route::get('/package', [\App\Http\Controllers\PackageController::class, 'package'])->name('package');
 Route::get('/price',[\App\Http\Controllers\PriceController::class, 'price'])->name('price');
 
+Route::get('services', [\App\Http\Controllers\ServiceController::class, 'services'])->name('services');
 Route::group(['prefix'=> 'services'], function (){
     Route::get('/pereyizd', [\App\Http\Controllers\ServiceController::class, 'moving'])->name('moving');
     Route::get('/perevezennya', [\App\Http\Controllers\ServiceController::class, 'transportation'])->name('transportation');
@@ -27,3 +28,4 @@ Route::group(['prefix'=> 'services'], function (){
     Route::get('/vantazhne-taksi', [\App\Http\Controllers\ServiceController::class, 'cargoTaxi'])->name('cargoTaxi');
     Route::get('/skladski-roboti', [\App\Http\Controllers\ServiceController::class, 'warehouseWork'])->name('warehouseWork');
 });
+

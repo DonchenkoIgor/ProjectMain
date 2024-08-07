@@ -174,7 +174,7 @@
                         <div class="elementor-element elementor-widget-image">
                             <div class="elementor-widget-container">
                                 <div class="elementor-image">
-                                    <img width="64" height="64" src="https://mypereezd.dp.ua/wp-content/uploads/elementor/thumbs/truck-pldn98cc1jowxqfmwp9fhjt5gvct99olk6kcmpjo8w.png" class="attachment-large size-large" alt="Главная">
+                                    <img width="105" height="64" src="{{ asset('images/car1.png') }}" class="attachment-large size-large" alt="Главная">
                                 </div>
                             </div>
                         </div>
@@ -193,7 +193,7 @@
                         <div class="elementor-element elementor-widget-image">
                             <div class="elementor-widget-container">
                                 <div class="elementor-image">
-                                    <img width="148" height="64" src="https://mypereezd.dp.ua/wp-content/uploads/2020/11/7345623766.png" class="attachment-large size-large" alt="Главная">
+                                    <img width="105" height="64" src="{{ asset('images/car2.png') }}" class="attachment-large size-large" alt="Главная">
                                 </div>
                             </div>
                         </div>
@@ -212,7 +212,7 @@
                         <div class="elementor-element elementor-widget-image">
                             <div class="elementor-widget-container">
                                 <div class="elementor-image">
-                                    <img width="194" height="64" src="https://mypereezd.dp.ua/wp-content/uploads/2020/11/867437.png" class="attachment-large size-large" alt="Главная">
+                                    <img width="134" height="64" src="{{ asset('images/car33.png') }}" class="attachment-large size-large" alt="Главная">
                                 </div>
                             </div>
                         </div>

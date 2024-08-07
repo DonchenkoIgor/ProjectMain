@@ -206,7 +206,7 @@
         </ul>
     </div>
     <div class="image-container">
-        <img src="{{ asset('images/cargo.jpg') }}" alt="Вантажне таксі">
+        <img src="{{ asset('images/gruztaxi.jpg') }}" alt="Вантажне таксі">
     </div>
 
     <div class="additional-spacing"></div>
