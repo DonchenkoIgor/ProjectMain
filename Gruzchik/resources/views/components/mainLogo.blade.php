@@ -278,7 +278,7 @@
                 <ul class="navbar-nav flex-grow-1 justify-content-between">
                     <li class="nav-item"><a class="nav-link" href="/">Головна</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" id="servicesDropdown" role="button">Послуги</a>
+                        <a class="nav-link" href="{{route('services')}}" id="servicesDropdown" role="button">Послуги</a>
                         <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
                             <li><a class="dropdown-item" href="{{route('moving')}}">Переїзд</a></li>
                             <li><a class="dropdown-item" href="{{route('transportation')}}">Перевезення майна</a></li>
@@ -291,7 +291,6 @@
                     <li class="nav-item"><a class="nav-link" href="{{route('transport')}}">Транспорт</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('price')}}">Ціни</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('package')}}">Упаковка</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Вакансії</a></li>
                 </ul>
             </div>
         </div>

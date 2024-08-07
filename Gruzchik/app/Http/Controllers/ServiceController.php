@@ -30,4 +30,8 @@ class ServiceController extends Controller
     {
         return view('pages.warehouseWork');
     }
+    public function services()
+    {
+        return view('pages.services');
+    }
 }
