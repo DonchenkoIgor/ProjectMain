@@ -29,3 +29,5 @@ Route::group(['prefix'=> 'services'], function (){
     Route::get('/skladski-roboti', [\App\Http\Controllers\ServiceController::class, 'warehouseWork'])->name('warehouseWork');
 });
 
+Route::post('/form-submit', [\App\Http\Controllers\OrderController::class, 'store'])->name('order.store');
+

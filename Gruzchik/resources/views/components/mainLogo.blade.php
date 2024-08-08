@@ -261,6 +261,9 @@
     .full-background a {
         color: #0059ff;
     }
+    .navbar.border-bottom {
+        border-bottom: 1px solid #0059ff; /* Замените #0059ff на нужный вам цвет */
+    }
 </style>
 
 <nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark">
@@ -285,7 +288,7 @@
                             <li><a class="dropdown-item" href="{{route('removal')}}">Вивіз не потрібних речей</a></li>
                             <li><a class="dropdown-item" href="{{route('loadingUnloading')}}">Завантаження та вивантаження</a></li>
                             <li><a class="dropdown-item" href="{{route('cargoTaxi')}}">Вантажне таксі</a></li>
-                            <li><a class="dropdown-item" href="{{route('warehouseWork')}}">Складські роботи</a></li>
+                            <li><a class="dropdown-item" href="{{route('warehouseWork')}}">Вантажники</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{route('transport')}}">Транспорт</a></li>

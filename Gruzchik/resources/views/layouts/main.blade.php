@@ -22,23 +22,80 @@
 
 
     <style>
-        .feedback-button {
-            z-index: 1050; /* Убедитесь, что кнопка находится поверх других элементов */
+        #feedbackModal .modal-content {
+            border-radius: 10px;
+            color: white;
+            padding: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, rgba(243, 128, 12, 0.8), rgba(255, 165, 0, 0.8));
+            animation: slideIn 0.5s ease-out;
         }
 
-        .feedback-button .btn {
-            border-radius: 20px; /* Смените на угол, чтобы кнопка была более прямоугольной */
-            padding: 10px 20px; /* Увеличьте внутренние отступы для большего размера */
-            font-size: 16px; /* Увеличьте размер шрифта */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center; /* Центрирование текста */
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
-        .feedback-button .btn:hover {
-            background-color: #f3510c; /* Цвет фона при наведении */
+        #feedbackModal .modal-header {
+            border-bottom: none; /* Убрать нижнюю границу */
+        }
+
+        #feedbackModal .modal-title {
+            font-size: 24px; /* Увеличить размер заголовка */
+            color: white; /* Белый заголовок */
+        }
+
+        #feedbackModal .btn-close {
+            filter: invert(100%); /* Сделать кнопку закрытия белой */
+            transition: transform 0.3s;
+        }
+
+        #feedbackModal .btn-close:hover {
+            transform: rotate(90deg);
+        }
+
+        #feedbackModal .form-label {
+            color: white; /* Белый текст для меток */
+        }
+
+        #feedbackModal .form-control {
+            background-color: #ffab40; /* Светло-оранжевый фон для полей ввода */
+            color: white; /* Белый текст в полях ввода */
+            border: 1px solid white; /* Белая рамка */
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        #feedbackModal .form-control:focus {
+            background-color: #ffab40; /* Сохранение цвета при фокусе */
+            color: white;
+            border-color: #ffe0b2; /* Светло-оранжевая рамка при фокусе */
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.15);
+        }
+
+        #feedbackModal .btn-primary {
+            background-color: white; /* Белая кнопка */
+            color: #f57c00; /* Оранжевый текст */
+            border: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        #feedbackModal .btn-primary:hover {
+            background-color: #ffe0b2; /* Светло-оранжевая кнопка при наведении */
+            color: #f57c00;
+            transform: translateY(-2px);
+        }
+
+        #feedbackModal .btn-primary:active {
+            transform: translateY(1px);
+            box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
         }
     </style>
 
@@ -87,7 +144,9 @@
     @yield('content')
     <div class="feedback-button position-fixed bottom-0 end-0 mb-3 me-3">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#feedbackModal">
-            ЗАМОВИТИ ДЗВІНОК
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+                <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L.708 3.207a1.745 1.745 0 0 0-.36 1.934 17.568 17.568 0 0 0 5.168 6.745 17.568 17.568 0 0 0 6.745 5.168 1.745 1.745 0 0 0 1.934-.36l1.942-1.942a.678.678 0 0 0-.063-1.015l-2.494-1.497a.678.678 0 0 0-.82.062l-2.256 1.812a11.384 11.384 0 0 1-5.468-5.468l1.812-2.256a.678.678 0 0 0 .062-.82L3.654 1.328z"/>
+            </svg>
         </button>
     </div>
 
@@ -95,15 +154,15 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="feedbackModalLabel">Введите ваш номер телефона</h5>
+                    <h5 class="modal-title" id="feedbackModalLabel">Введіть Ваш номер телефону</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="phone" class="form-label">Номер телефона</label>
-                        <input type="tel" class="form-control" id="phone" placeholder="Введите ваш номер телефона">
+                        <label for="phone" class="form-label">Номер телефону</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="Введіть Ваш номер телефону">
                     </div>
-                    <button type="button" class="btn btn-primary" id="submitPhone">Отправить</button>
+                    <button type="button" class="btn btn-primary" id="submitPhone">Передзвоніть мені</button>
                 </div>
             </div>
         </div>
