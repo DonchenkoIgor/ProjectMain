@@ -1,6 +1,6 @@
 @extends('app')
-@section('description', 'Складскі роботи')
-@section('title', 'Складскі роботи')
+@section('description', 'Надаємо послуги вантажників по всій країні')
+@section('title', 'Вантажники')
 
 @section('content')
     <style>

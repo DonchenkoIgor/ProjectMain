@@ -229,35 +229,35 @@
 
         <div class="d-flex justify-content-center my-5">
             <a class="order-button" data-bs-toggle="modal" data-bs-target="#orderModal">РОЗРАХУВАТИ ВАРТІСТЬ</a>
-        </div>
-
-        <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="orderModalLabel">ЗАМОВИТИ ПЕРЕЇЗД</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Имя</label>
-                                <input type="text" class="form-control" id="name" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="phone" class="form-label">Телефон</label>
-                                <input type="tel" class="form-control" id="phone" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email">
-                            </div>
-                            <div class="mb-3">
-                                <label for="message" class="form-label">Сообщение</label>
-                                <textarea class="form-control" id="message" rows="3"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Отправить</button>
-                        </form>
+            <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="orderModalLabel">РОЗРАХУВАТИ ВАРТІСТЬ</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{ route('order.store') }}" method="POST">
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Ім'я</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Телефон</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Повідомлення</label>
+                                    <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Відправити</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

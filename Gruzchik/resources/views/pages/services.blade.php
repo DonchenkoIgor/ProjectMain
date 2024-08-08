@@ -153,7 +153,7 @@
                 <div class="service-card">
                     <img src="{{ asset('images/sklad2.png') }}" alt="Складські роботи">
                     <div class="service-card-content">
-                        <a class="custom-link" href="{{route('warehouseWork')}}">Складські роботи</a>
+                        <a class="custom-link" href="{{route('warehouseWork')}}">Вантажники</a>
                         <p>Наша компанія пропонує послуги вантажників, організована мобільна бригада професійних працівників. Виконаємо навіть найскладнішу операцію.</p>
                         <div class="order-button-container">
                             <a class="order-button" data-bs-toggle="modal" data-bs-target="#orderModal">ЗАМОВИТИ</a>
