@@ -30,4 +30,5 @@ Route::group(['prefix'=> 'services'], function (){
 });
 
 Route::post('/form-submit', [\App\Http\Controllers\OrderController::class, 'store'])->name('order.store');
+Route::post('/feedback', [\App\Http\Controllers\FeedbackController::class, 'feedback'])->name('feedback.store');
 

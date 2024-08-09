@@ -8,6 +8,8 @@
       <sourceFolder url="file://$MODULE_DIR$/Gruzchik/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/Gruzchik/tests/Feature" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/Gruzchik/tests/Unit" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/Gruzchik/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/Gruzchik/vendor/carbonphp/carbon-doctrine-types" />
       <excludeFolder url="file://$MODULE_DIR$/Gruzchik/vendor/composer" />
@@ -121,6 +123,17 @@
       <excludeFolder url="file://$MODULE_DIR$/Gruzchik/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/Gruzchik/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/Gruzchik/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/Gruzchik/vendor/backpack/basset" />
+      <excludeFolder url="file://$MODULE_DIR$/Gruzchik/vendor/backpack/crud" />
+      <excludeFolder url="file://$MODULE_DIR$/Gruzchik/vendor/backpack/generators" />
+      <excludeFolder url="file://$MODULE_DIR$/Gruzchik/vendor/backpack/theme-tabler" />
+      <excludeFolder url="file://$MODULE_DIR$/Gruzchik/vendor/creativeorange/gravatar" />
+      <excludeFolder url="file://$MODULE_DIR$/Gruzchik/vendor/doctrine/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/Gruzchik/vendor/doctrine/dbal" />
+      <excludeFolder url="file://$MODULE_DIR$/Gruzchik/vendor/doctrine/deprecations" />
+      <excludeFolder url="file://$MODULE_DIR$/Gruzchik/vendor/doctrine/event-manager" />
+      <excludeFolder url="file://$MODULE_DIR$/Gruzchik/vendor/prologue/alerts" />
+      <excludeFolder url="file://$MODULE_DIR$/Gruzchik/vendor/psr/cache" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

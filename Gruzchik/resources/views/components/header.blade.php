@@ -104,17 +104,23 @@
     }
 
     #orderModal .form-control {
-        background-color: #ffab40; /* Светло-оранжевый фон для полей ввода */
-        color: white; /* Белый текст в полях ввода */
-        border: 1px solid white; /* Белая рамка */
+        background-color: #ffffff; /* Белый фон для полей ввода */
+        color: #000000; /* Черный текст в полях ввода */
+        border: 1px solid #ffffff; /* Белая рамка */
         box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
     }
 
     #orderModal .form-control:focus {
-        background-color: #ffab40; /* Сохранение цвета при фокусе */
-        color: white;
-        border-color: #ffe0b2; /* Светло-оранжевая рамка при фокусе */
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.15);
+        background-color: #ffffff; /* Белый фон при фокусе */
+        color: #000000; /* Черный текст при фокусе */
+        border-color: #ffffff; /* Белая рамка при фокусе */
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    #orderModal .form-control:hover {
+        background-color: #ffffff; /* Белый фон при наведении */
+        color: #000000; /* Черный текст при наведении */
+        border-color: #ffffff; /* Белая рамка при наведении */
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
     }
 
     #orderModal .btn-primary {
@@ -171,7 +177,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('order.store') }}" method="POST">
+                <form id="orderForm" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Ім'я</label>
@@ -189,11 +195,60 @@
                         <label for="message" class="form-label">Повідомлення</label>
                         <textarea class="form-control" id="message" name="message" rows="3"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Відправити</button>
+                    <button type="button" class="btn btn-primary" id="submitOrder">Відправити</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    document.getElementById('submitOrder').addEventListener('click', function () {
+        var form = document.getElementById('orderForm');
+        var formData = new FormData(form);
+
+        fetch("{{ route('order.store') }}", {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    var modal = bootstrap.Modal.getInstance(document.getElementById('orderModal'));
+                    modal.hide();
+
+                    form.reset();  // Очищаем форму после успешной отправки
+
+                    // Удаляем все элементы и классы, которые могут блокировать сайт
+                    setTimeout(function () {
+                        document.querySelectorAll('.modal-backdrop').forEach(function (backdrop) {
+                            backdrop.remove();
+                        });
+                        document.body.classList.remove('modal-open');
+                        document.body.style = ''; // Очищаем все inline-стили на body
+
+                        // Если модальное окно не закрыто, закрываем его
+                        if (modal._isShown) {
+                            modal.hide();
+                        }
+
+                        // Убеждаемся, что фокус возвращен на body
+                        document.activeElement.blur();
+                    }, 500);
+
+                    alert('Форма успішно заповнена');
+                } else {
+                    alert('Помилка: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+                alert('Виникла помилка.');
+            });
+    });
+</script>
 </body>

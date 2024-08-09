@@ -24,6 +24,6 @@ class OrderController extends Controller
             'message' => $validated['message'],
         ]);
 
-        return redirect()->back();
+        return response()->json(['success' => true]);
     }
 }
