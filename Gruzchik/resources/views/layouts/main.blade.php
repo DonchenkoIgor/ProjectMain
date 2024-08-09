@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Послуги вантажників у Києві')</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/product/">
@@ -65,17 +66,23 @@
         }
 
         #feedbackModal .form-control {
-            background-color: #ffab40; /* Светло-оранжевый фон для полей ввода */
-            color: white; /* Белый текст в полях ввода */
-            border: 1px solid white; /* Белая рамка */
+            background-color: #ffffff; /* Белый фон для полей ввода */
+            color: #000000; /* Черный текст в полях ввода */
+            border: 1px solid #ffffff; /* Белая рамка */
             box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         #feedbackModal .form-control:focus {
-            background-color: #ffab40; /* Сохранение цвета при фокусе */
-            color: white;
-            border-color: #ffe0b2; /* Светло-оранжевая рамка при фокусе */
-            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.15);
+            background-color: #ffffff; /* Белый фон при фокусе */
+            color: #000000; /* Черный текст при фокусе */
+            border-color: #ffffff; /* Белая рамка при фокусе */
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        #feedbackModal .form-control:hover {
+            background-color: #ffffff; /* Белый фон при наведении */
+            color: #000000; /* Черный текст при наведении */
+            border-color: #ffffff; /* Белая рамка при наведении */
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         #feedbackModal .btn-primary {
@@ -158,11 +165,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="phone" class="form-label">Номер телефону</label>
-                        <input type="tel" class="form-control" id="phone" placeholder="Введіть Ваш номер телефону">
-                    </div>
-                    <button type="button" class="btn btn-primary" id="submitPhone">Передзвоніть мені</button>
+                    <form id="feedbackForm" method="POST">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="userPhone" class="form-label">Номер телефону</label>
+                            <input type="tel" class="form-control" id="userPhone" name="userPhone" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Передзвоніть мені</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -172,7 +182,53 @@
 
 @include('components.footer')
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById('feedbackForm').addEventListener('submit', function (e) {
+        e.preventDefault();  // Отключаем стандартное поведение формы
 
+        var phoneInput = document.getElementById('userPhone');
+        var phone = phoneInput.value.replace(/\s+/g, '');
+
+        console.log('Phone input value:', phone);  // Проверяем, что попадает в переменную phone
+
+        if (phone === '') {
+            alert('Будь ласка, введіть Ваш номер телефону.');
+            return;
+        }
+
+        // Выводим содержимое FormData для проверки
+        var formData = new FormData(this);
+        formData.forEach(function(value, key){
+            console.log(key + ': ' + value);
+        });
+
+        fetch("{{ route('feedback.store') }}", {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    var modal = bootstrap.Modal.getInstance(document.getElementById('feedbackModal'));
+                    modal.hide();
+
+                    phoneInput.value = '';  // Очищаем поле ввода
+
+                    alert('Ваш номер успішно відправлено!');
+                } else {
+                    console.error('Ответ сервера:', data);
+                    alert('Сталася помилка при відправці номера.');
+                }
+            })
+            .catch(error => {
+                console.error('Помилка:', error);
+                alert('Сталася помилка при відправці даних.');
+            });
+    });
+</script>
 </body>
 </html>

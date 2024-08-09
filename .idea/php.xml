@@ -125,6 +125,17 @@
       <path value="$PROJECT_DIR$/Gruzchik/vendor/nunomaduro/termwind" />
       <path value="$PROJECT_DIR$/Gruzchik/vendor/graham-campbell/result-type" />
       <path value="$PROJECT_DIR$/Gruzchik/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/Gruzchik/vendor/prologue/alerts" />
+      <path value="$PROJECT_DIR$/Gruzchik/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/Gruzchik/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/Gruzchik/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/Gruzchik/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/Gruzchik/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/Gruzchik/vendor/backpack/basset" />
+      <path value="$PROJECT_DIR$/Gruzchik/vendor/backpack/crud" />
+      <path value="$PROJECT_DIR$/Gruzchik/vendor/creativeorange/gravatar" />
+      <path value="$PROJECT_DIR$/Gruzchik/vendor/backpack/generators" />
+      <path value="$PROJECT_DIR$/Gruzchik/vendor/backpack/theme-tabler" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />
