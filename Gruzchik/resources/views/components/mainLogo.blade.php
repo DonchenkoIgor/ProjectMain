@@ -283,12 +283,12 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="{{route('services')}}" id="servicesDropdown" role="button">Послуги</a>
                         <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                            <li><a class="dropdown-item" href="{{route('moving')}}">Переїзд</a></li>
+                            <li><a class="dropdown-item" href="{{route('moving')}}">Офісний/квартирний переїзд</a></li>
                             <li><a class="dropdown-item" href="{{route('transportation')}}">Перевезення майна</a></li>
                             <li><a class="dropdown-item" href="{{route('removal')}}">Вивіз не потрібних речей</a></li>
                             <li><a class="dropdown-item" href="{{route('loadingUnloading')}}">Завантаження та вивантаження</a></li>
                             <li><a class="dropdown-item" href="{{route('cargoTaxi')}}">Вантажне таксі</a></li>
-                            <li><a class="dropdown-item" href="{{route('warehouseWork')}}">Вантажники</a></li>
+                            <li><a class="dropdown-item" href="{{route('warehouseWork')}}">Послуги вантажників</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{route('transport')}}">Транспорт</a></li>
@@ -303,7 +303,7 @@
 <div class="position-relative overflow-hidden p-0 m-0 text-center bg-body-tertiary">
     <div class="position-relative overflow-hidden p-0 m-0 text-center bg-body-tertiary full-background">
         <div class="col-md-4 p-lg-5 mx-auto my-5">
-            <h1 class="display-3 fw-bold">Послуги вантажників у Києві</h1>
+            <h1 class="display-3 fw-bold">Працюємо по всій країні</h1>
             <h3 class="fw-normal mb-3">@yield('description', 'Переїзд у нову квартиру')</h3>
         </div>
         <div class="product-device shadow-sm d-none d-md-block"></div>

@@ -100,7 +100,7 @@
 
 <div class="container product-page-header">
     <div class="product-title">Пакувальний матеріал</div>
-    <div class="product-subtitle">//</div>
+    <div class="product-subtitle"></div>
     <div class="product-grid">
         <div class="product-grid-item">
             <img src="images/korobki.jpg" alt="Картонный короб">

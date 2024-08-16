@@ -119,6 +119,14 @@
         <p class="text-center">Правильний пошук транспорту – важлива складова вдалого переїзду, тому маємо великий вибір вантажного транспорту для кожного окремого випадку.</p>
     </div>
 
+    <div class="additional-spacing"></div>
+
+    <div class="header-text text-center">
+        <div class="note-box">
+            <strong>Примітка:</strong> Всі ціни вказані "Від"
+        </div>
+    </div>
+
     <div class="my-5 tariffs-container text-center">
         <div class="table-responsive">
             <table class="table table-bordered table-striped text-center">

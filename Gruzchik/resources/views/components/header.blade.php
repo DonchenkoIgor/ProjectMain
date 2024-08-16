@@ -1,3 +1,5 @@
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -207,7 +209,7 @@
         var form = document.getElementById('orderForm');
         var formData = new FormData(form);
 
-        fetch("{{ route('order.store') }}", {
+        fetch("/form-submit", {
             method: 'POST',
             body: formData,
             headers: {
@@ -246,7 +248,7 @@
                 }
             })
             .catch(error => {
-                console.error('Ошибка:', error);
+                console.error('Помилка:', error);
                 alert('Виникла помилка.');
             });
     });
