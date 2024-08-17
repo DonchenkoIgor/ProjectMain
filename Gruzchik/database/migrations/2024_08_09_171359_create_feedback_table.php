@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
             $table->string('userPhone');
+            $table->string('result')->nullable();
             $table->timestamps();
         });
     }

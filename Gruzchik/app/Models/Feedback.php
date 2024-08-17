@@ -11,5 +11,8 @@ class Feedback extends Model
     use CrudTrait;
     use HasFactory;
 
-    protected $fillable = ['userPhone'];
+    protected $fillable = [
+        'userPhone',
+        'result',
+        ];
 }

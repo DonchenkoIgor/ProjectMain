@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('email')->nullable();
             $table->string('message')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
