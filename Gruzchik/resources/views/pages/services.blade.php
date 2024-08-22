@@ -161,6 +161,18 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-4 mb-4">
+                <div class="service-card">
+                    <img src="{{ asset('images/sklad2.png') }}" alt="Міжміські перевезення">
+                    <div class="service-card-content">
+                        <a class="custom-link" href="{{route('international')}}">Міжміські перевезення</a>
+                        <p>Ми пропонуємо два основні варіанти перевезень: перший - збірна доставка, другий - окремий автомобіль, виділений лише під доставку вантажу.</p>
+                        <div class="order-button-container">
+                            <a class="order-button" data-bs-toggle="modal" data-bs-target="#orderModal">ЗАМОВИТИ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
