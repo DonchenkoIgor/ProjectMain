@@ -289,6 +289,7 @@
                             <li><a class="dropdown-item" href="{{route('loadingUnloading')}}">Завантаження та вивантаження</a></li>
                             <li><a class="dropdown-item" href="{{route('cargoTaxi')}}">Вантажне таксі</a></li>
                             <li><a class="dropdown-item" href="{{route('warehouseWork')}}">Послуги вантажників</a></li>
+                            <li><a class="dropdown-item" href="{{route('international')}}">Вантажні перевезення по Україні</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{route('transport')}}">Транспорт</a></li>

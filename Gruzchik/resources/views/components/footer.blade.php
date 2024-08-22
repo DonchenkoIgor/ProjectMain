@@ -1,6 +1,6 @@
 <style>
     .footer {
-        background-color: #f8f9fa; /* Светло-серый цвет фона */
+        background-color: rgba(8, 9, 9, 0); /* Светло-серый цвет фона */
         padding: 20px 0; /* Отступы сверху и снизу */
     }
 
@@ -126,6 +126,7 @@
                     <li><a class="link-secondary text-decoration-none" href="{{route('loadingUnloading')}}">Завантаження та вивантаження</a></li>
                     <li><a class="link-secondary text-decoration-none" href="{{route('cargoTaxi')}}">Вантажне таксі</a></li>
                     <li><a class="link-secondary text-decoration-none" href="{{route('warehouseWork')}}">Послуги вантажників</a></li>
+                    <li><a class="link-secondary text-decoration-none" href="{{route('international')}}">Вантажні перевезення по Україні</a></li>
                 </ul>
             </div>
         </div>

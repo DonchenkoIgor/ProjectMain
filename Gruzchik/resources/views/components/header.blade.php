@@ -1,4 +1,4 @@
-<meta name="csrf-token" content="{{ csrf_token() }}">
+
 
 <style>
     body {
@@ -204,6 +204,17 @@
     </div>
 </div>
 
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="successToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                Форма успішно відправлена!
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
 <script>
     document.getElementById('submitOrder').addEventListener('click', function () {
         var form = document.getElementById('orderForm');
@@ -225,6 +236,10 @@
 
                     form.reset();  // Очищаем форму после успешной отправки
 
+                    // Показать Toast уведомление
+                    var successToast = new bootstrap.Toast(document.getElementById('successToast'));
+                    successToast.show();
+
                     // Удаляем все элементы и классы, которые могут блокировать сайт
                     setTimeout(function () {
                         document.querySelectorAll('.modal-backdrop').forEach(function (backdrop) {
@@ -242,7 +257,6 @@
                         document.activeElement.blur();
                     }, 500);
 
-                    alert('Форма успішно заповнена');
                 } else {
                     alert('Помилка: ' + data.message);
                 }

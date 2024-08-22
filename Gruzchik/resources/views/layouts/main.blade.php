@@ -4,7 +4,8 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Вантажники у Дніпрі, Києві та по всій Україні. Надійні вантажоперевезення та послуги вантажників.">
+    <meta name="keywords" content="вантажники в Дніпрі, вантажники в Києві, вантажоперевезення по Україні, послуги вантажників, вантажоперевезення, перевезення вантажів">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title', 'Послуги вантажників')</title>
@@ -12,91 +13,48 @@
 
 
 
+    <!-- Подключение стилей Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Подключение FontAwesome (если нужен) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
+    <!-- Подключение jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Подключение Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+
+
+
     <style>
-        #feedbackModal .modal-content {
-            border-radius: 10px;
-            color: white;
-            padding: 20px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            background: linear-gradient(135deg, rgba(243, 128, 12, 0.8), rgba(255, 165, 0, 0.8));
-            animation: slideIn 0.5s ease-out;
+        #phoneModal .modal-content {
+            background-color: rgba(255, 165, 0, 0.83); /* Полупрозрачный оранжевый фон */
+            border-radius: 10px; /* Закругленные углы */
         }
 
-        @keyframes slideIn {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        /* Стили для заголовка модального окна */
+        #phoneModal .modal-title {
+            color: white; /* Белый цвет текста */
         }
 
-        #feedbackModal .modal-header {
-            border-bottom: none; /* Убрать нижнюю границу */
+        /* Стили для кнопки закрытия */
+        #phoneModal .btn-close {
+            background-color: white; /* Белая кнопка закрытия */
         }
 
-        #feedbackModal .modal-title {
-            font-size: 24px; /* Увеличить размер заголовка */
-            color: white; /* Белый заголовок */
+        /* Стили для ссылок в модальном окне */
+        #phoneModal .modal-body a {
+            color: white; /* Белый цвет текста ссылок */
+            text-decoration: none; /* Убираем подчеркивание */
         }
 
-        #feedbackModal .btn-close {
-            filter: invert(100%); /* Сделать кнопку закрытия белой */
-            transition: transform 0.3s;
-        }
-
-        #feedbackModal .btn-close:hover {
-            transform: rotate(90deg);
-        }
-
-        #feedbackModal .form-label {
-            color: white; /* Белый текст для меток */
-        }
-
-        #feedbackModal .form-control {
-            background-color: #ffffff; /* Белый фон для полей ввода */
-            color: #000000; /* Черный текст в полях ввода */
-            border: 1px solid #ffffff; /* Белая рамка */
-            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
-        }
-
-        #feedbackModal .form-control:focus {
-            background-color: #ffffff; /* Белый фон при фокусе */
-            color: #000000; /* Черный текст при фокусе */
-            border-color: #ffffff; /* Белая рамка при фокусе */
-            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
-        }
-        #feedbackModal .form-control:hover {
-            background-color: #ffffff; /* Белый фон при наведении */
-            color: #000000; /* Черный текст при наведении */
-            border-color: #ffffff; /* Белая рамка при наведении */
-            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
-        }
-
-        #feedbackModal .btn-primary {
-            background-color: white; /* Белая кнопка */
-            color: #f57c00; /* Оранжевый текст */
-            border: none;
-            font-weight: bold;
-            padding: 10px 20px;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        #feedbackModal .btn-primary:hover {
-            background-color: #ffe0b2; /* Светло-оранжевая кнопка при наведении */
-            color: #f57c00;
-            transform: translateY(-2px);
-        }
-
-        #feedbackModal .btn-primary:active {
-            transform: translateY(1px);
-            box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
+        /* Дополнительно: изменение цвета кнопки при наведении (опционально) */
+        #phoneModal .modal-body a:hover {
+            color: #f0f0f0; /* Цвет текста ссылок при наведении */
+            text-decoration: underline; /* Подчеркивание при наведении */
         }
     </style>
 
@@ -144,97 +102,34 @@
     @include('components.mainLogo')
     @yield('content')
     <div class="feedback-button position-fixed bottom-0 end-0 mb-3 me-3">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#phoneModal">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
                 <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L.708 3.207a1.745 1.745 0 0 0-.36 1.934 17.568 17.568 0 0 0 5.168 6.745 17.568 17.568 0 0 0 6.745 5.168 1.745 1.745 0 0 0 1.934-.36l1.942-1.942a.678.678 0 0 0-.063-1.015l-2.494-1.497a.678.678 0 0 0-.82.062l-2.256 1.812a11.384 11.384 0 0 1-5.468-5.468l1.812-2.256a.678.678 0 0 0 .062-.82L3.654 1.328z"/>
             </svg>
         </button>
     </div>
 
-    <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal fade" id="phoneModal" tabindex="-1" aria-labelledby="phoneModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="feedbackModalLabel">Введіть Ваш номер телефону</h5>
+                    <h5 class="modal-title" id="phoneModalLabel">Наші контакти</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="feedbackForm" method="POST">
-                        @csrf
-                        <div class="mb-3">
-                            <label for="userPhone" class="form-label">Номер телефону</label>
-                            <input type="tel" class="form-control" id="userPhone" name="userPhone" required>
-                        </div>
-                        <button id="submitFeedback" type="button" class="btn btn-primary">Передзвоніть мені</button>
-                    </form>
+                    <ul class="list-unstyled">
+                        <p><a href="tel:+380561231234">+380 (56) 123-12-34</a></p>
+                        <p><a href="tel:+380561231234">+380 (56) 123-12-34</a></p>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 
 </main>
-
+@include('components.reviewPanel')
 @include('components.footer')
 
-<script>
-    document.getElementById('submitFeedback').addEventListener('click', function () {
-        var form = document.getElementById('feedbackForm');
-        var formData = new FormData(form);
 
-        var phoneInput = document.getElementById('userPhone');
-        var phone = phoneInput.value.replace(/\s+/g, '');
-
-        console.log('Phone input value:', phone);  // Проверяем, что попадает в переменную phone
-
-        if (phone === '') {
-            alert('Будь ласка, введіть Ваш номер телефону.');
-            return;
-        }
-
-        fetch("/feedback", {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-            }
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    var modal = bootstrap.Modal.getInstance(document.getElementById('feedbackModal'));
-                    modal.hide();
-
-                    form.reset();  // Очищаем форму после успешной отправки
-
-                    // Удаляем все элементы и классы, которые могут блокировать сайт
-                    setTimeout(function () {
-                        document.querySelectorAll('.modal-backdrop').forEach(function (backdrop) {
-                            backdrop.remove();
-                        });
-                        document.body.classList.remove('modal-open');
-                        document.body.style = ''; // Очищаем все inline-стили на body
-
-                        // Если модальное окно не закрыто, закрываем его
-                        if (modal._isShown) {
-                            modal.hide();
-                        }
-
-                        // Убеждаемся, что фокус возвращен на body
-                        document.activeElement.blur();
-                    }, 500);
-
-                    alert('Ваш номер успішно відправлено!');
-                } else {
-                    console.error('Ответ сервера:', data);
-                    alert('Сталася помилка при відправці номера.');
-                }
-            })
-            .catch(error => {
-                console.error('Помилка:', error);
-                alert('Сталася помилка при відправці даних.');
-            });
-    });
-</script>
 </body>
 </html>
