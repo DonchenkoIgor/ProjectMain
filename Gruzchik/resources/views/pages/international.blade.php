@@ -12,7 +12,7 @@
             border: none; /* Убираем границу */
             max-width: 1300px; /* Максимальная ширина */
             margin: 0 auto; /* Центрирование */
-            height: 650px; /* Высота контейнера автоматически подстраивается под содержимое */
+            height: 450px; /* Высота контейнера автоматически подстраивается под содержимое */
             overflow: hidden; /* Обрезаем содержимое, которое выходит за пределы контейнера */
         }
 
@@ -130,7 +130,7 @@
     </style>
 
     <div class="image-container">
-        <img src="{{ asset('images/international.jpg') }}" alt="Вантажні перевезення">
+        <img src="{{ asset('images/international_new.png') }}" alt="Вантажні перевезення">
     </div>
 
     <div class="international-move">

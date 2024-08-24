@@ -152,7 +152,7 @@
         <div class="header-top">
             <div class="logo">
                 <a href="{{ url('/') }}">
-                    <img src="{{ asset('images/logo1.png') }}" alt="Вантажник">
+                    <img src="{{ asset('images/logo_new.png') }}" alt="Вантажник">
                 </a>
             </div>
             <div class="contact-info">

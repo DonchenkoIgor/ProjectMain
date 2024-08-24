@@ -47,15 +47,11 @@
     .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
         user-select: none;
     }
 
-    @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-            font-size: 3.5rem;
-        }
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
     }
 
     /* Разделитель и вертикальная линия */
@@ -98,7 +94,7 @@
     }
 
     .full-background {
-        background-image: url('{{ asset('images/logo4.jpg') }}');
+        background-image: url('{{ asset('images/mainLogo.png') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -109,16 +105,13 @@
         left: 0;
         margin: 0;
         padding: 15px;
-    }
-
-    .full-background {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
-
     }
+
     .full-background h1 {
         color: #f3510c;
         font-size: 2.5rem;
@@ -130,6 +123,12 @@
         font-size: 1.5rem;
     }
 
+    /* Колонки */
+    .col-md-6 {
+        max-width: 100%;
+    }
+
+    /* Медиа-запросы */
     @media (min-width: 768px) {
         .full-background h1 {
             font-size: 3rem;
@@ -141,6 +140,23 @@
         }
     }
 
+    @media (max-width: 768px) {
+        .position-relative {
+            width: 100%;
+            height: 28vh;
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+        }
+        .full-background h1 {
+            font-size: 1.5rem; /* Уменьшает размер шрифта заголовка для мобильных устройств */
+        }
+
+        .full-background h3 {
+            font-size: 1rem; /* Уменьшает размер шрифта подзаголовка для мобильных устройств */
+        }
+    }
+
     @media (min-width: 1024px) {
         .full-background h1 {
             font-size: 4rem;
@@ -149,98 +165,6 @@
 
         .full-background h3 {
             font-size: 2.5rem;
-        }
-    }
-
-    /* Колонки */
-    .col-md-6 {
-        max-width: 100%;
-    }
-
-    /* Стили для тарифных карточек */
-    .tariff-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        background-color: #f8f9fa;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-    }
-
-    .tariff-card img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 10px;
-    }
-
-    .tariff-card-content {
-        margin-top: 20px;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 50%;
-    }
-
-    .tariff-card h3 {
-        color: #f3510c;
-        margin: 20px 0;
-    }
-
-    .tariff-card ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .tariff-card ul li {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    .tariff-card ul li::before {
-        content: "\2714"; /* Unicode символ галочки */
-        color: #f3510c;
-        margin-right: 10px;
-    }
-
-    .tariff-card .additional-services {
-        margin-top: 20px;
-    }
-
-    .tariff-card .additional-services .service {
-        background-color: #fff;
-        border: 1px solid #dee2e6;
-        padding: 10px;
-        border-radius: 5px;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    .tariff-card .additional-services .service svg {
-        width: 24px;
-        height: 24px;
-        fill: #f3510c;
-        margin-bottom: 5px;
-    }
-
-    @media (min-width: 768px) {
-        .tariff-card {
-            flex-direction: row;
-            text-align: left;
-        }
-
-        .tariff-card img {
-            max-width: 50%;
-            margin-right: 20px;
-        }
-
-        .tariff-card-content {
-            margin-top: 0;
         }
     }
 
@@ -261,8 +185,46 @@
     .full-background a {
         color: #0059ff;
     }
+
     .navbar.border-bottom {
         border-bottom: 1px solid #0059ff; /* Замените #0059ff на нужный вам цвет */
+    }
+
+    .offcanvas {
+        background-color: rgba(52, 58, 64, 0.8); /* Полупрозрачный тёмный фон */
+        color: #ffffff; /* Белый текст */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Мягкая тень */
+    }
+
+    .navbar-nav .nav-item {
+        margin-bottom: 0.5rem; /* Отступы между элементами меню */
+    }
+
+    .navbar-nav .nav-link {
+        color: #ffffff;
+        padding: 0.5rem 1rem; /* Отступы вокруг ссылки */
+        border-radius: 0.25rem; /* Округлённые углы ссылки */
+    }
+
+    .navbar-nav .nav-link:hover {
+        background-color: rgba(73, 80, 87, 0.6); /* Полупрозрачный фон при наведении */
+        color: #f3510c; /* Цвет текста при наведении */
+    }
+
+    /* Выпадающее меню */
+    .dropdown-menu {
+        background-color: rgba(73, 80, 87, 0.8); /* Полупрозрачный фон для выпадающего меню */
+        border: none; /* Удаление границы */
+    }
+
+    .dropdown-item {
+        color: #ffffff;
+        padding: 0.5rem 1rem;
+    }
+
+    .dropdown-item:hover {
+        background-color: rgba(52, 58, 64, 0.6); /* Полупрозрачный фон при наведении на элемент */
+        color: #f3510c; /* Цвет текста при наведении на элемент */
     }
 </style>
 
@@ -270,10 +232,10 @@
     <div class="container">
         <a class="navbar-brand d-md-none" href="#">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+        <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
             <div class="offcanvas-header">
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
@@ -303,12 +265,12 @@
 
 <div class="position-relative overflow-hidden p-0 m-0 text-center bg-body-tertiary">
     <div class="position-relative overflow-hidden p-0 m-0 text-center bg-body-tertiary full-background">
+        <div class="product-device shadow-sm d-none d-md-block"></div>
+        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
         <div class="col-md-4 p-lg-5 mx-auto my-5">
             <h1 class="display-3 fw-bold">Працюємо по всій країні</h1>
             <h3 class="fw-normal mb-3">@yield('description', 'Переїзд у нову квартиру')</h3>
         </div>
-        <div class="product-device shadow-sm d-none d-md-block"></div>
-        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
     </div>
 </div>
 <div class="product-device shadow-sm d-none d-md-block"></div>

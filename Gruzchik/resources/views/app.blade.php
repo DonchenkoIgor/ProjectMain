@@ -2,78 +2,165 @@
 
 @section('content')
     <style>
+        .container {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        /* Заголовки */
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            color: #f3510c;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        /* Карточки тарифа */
+        .tariff-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .tariff-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .tariff-card-content {
+            padding: 20px;
+        }
+
+        .tariff-card-content p {
+            margin: 0 0 10px;
+        }
+
+        .tariff-card-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .tariff-card-content li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .tariff-card-content li::before {
+            content: "\2714"; /* Unicode символ галочки */
+            color: #f3510c;
+            margin-right: 10px;
+        }
+
+        .orange-text {
+            color: #f3510c;
+        }
+
+        /* Элементы с изображениями и заголовками */
         .elementor-container {
             display: flex;
-            justify-content: center; /* Центрирование по горизонтали */
-            padding: 1px; /* Отступы вокруг контейнера */
-            background-color: #ffffff; /* Белый фон для контейнера */
-            width: 100%; /* Занимать всю ширину родительского элемента */
+            justify-content: center;
+            padding: 1px;
+            background-color: #ffffff;
+            width: 100%;
             flex-wrap: wrap;
         }
 
         .elementor-row {
             display: flex;
-            justify-content: space-between; /* Распределить элементы внутри ряда */
-            align-items: center; /* Центрировать элементы по вертикали */
-            gap: 20px; /* Расстояние между элементами */
-            flex-wrap: wrap; /* Разрешить перенос элементов на следующую строку при необходимости */
-            width: 100%; /* Занимать всю ширину контейнера */
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            width: 100%;
         }
 
         .elementor-column {
             display: flex;
             flex-direction: column;
-            align-items: center; /* Центрирование содержимого колонки по горизонтали */
-            padding: 20px; /* Внутренние отступы */
-            background-color: #ffffff; /* Цвет фона колонки */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень */
-            border-radius: 8px; /* Закругленные углы */
-            flex: 1 1 30%; /* Занимать 30% ширины родительского элемента и позволять изменения размера */
-            max-width: 30%; /* Максимальная ширина 30% */
-            transition: transform 0.3s ease, background-color 0.3s ease; /* Плавный переход */
-            text-align: center; /* Центрирование текста по горизонтали */
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            flex: 1 1 30%;
+            max-width: 30%;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            text-align: center;
             box-sizing: border-box;
         }
 
         .elementor-column:hover {
-            transform: translateY(-10px); /* Подъем при наведении */
-            background-color: #e0e0e0; /* Затемнение фона при наведении */
+            transform: translateY(-10px);
+            background-color: #f9f9f9;
         }
 
         .elementor-image img {
-            max-width: 100%; /* Масштабирование изображения */
-            height: auto; /* Сохранение пропорций изображения */
-            margin-bottom: 10px; /* Отступ снизу */
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
         }
 
         .elementor-heading-title {
-            font-size: 1.2em; /* Размер шрифта заголовка */
-            color: #333; /* Цвет текста заголовка */
-            margin: 0; /* Удаление отступов */
+            font-size: 1.2em;
+            color: #333;
+            margin: 0;
         }
 
-        .orange-text {
-            color: #f3510c; /* Оранжевый цвет */
-        }
-        .order-button {
-            background-color: #f3510c;
-            color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+        /* Адаптивные стили */
         @media (max-width: 768px) {
             .order-button {
-                font-size: 14px; /* Уменьшите размер шрифта */
-                padding: 8px 16px; /* Уменьшите внутренние отступы */
-                margin-top: 20px; /* Увеличьте отступ сверху для мобильных устройств */
+                font-size: 14px;
+                padding: 8px 16px;
+                margin-top: 20px;
             }
+
             .elementor-column {
                 flex: 1 1 45%;
                 max-width: 45%;
             }
+
+            .tariff-card {
+                padding: 15px;
+            }
+
+            .tariff-card-content {
+                padding: 8px;
+            }
         }
+        @media (min-width: 768px) {
+            .tariff-card {
+                flex-direction: row;
+                text-align: left;
+            }
+
+            .tariff-card img {
+                max-width: 50%;
+                margin-right: 20px;
+            }
+
+            .tariff-card-content {
+                margin-top: 0;
+            }
+        }
+
         @media (max-width: 576px) {
             .elementor-column {
                 flex: 1 1 100%;
@@ -91,17 +178,7 @@
                 padding-left: 10px;
                 padding-right: 10px;
             }
-        }
-        @media (max-width: 768px) {
-            .tariff-card {
-                padding: 15px;
-            }
 
-            .tariff-card-content {
-                padding: 8px;
-            }
-        }
-        @media (max-width: 576px) {
             .tariff-card {
                 padding: 10px;
             }
@@ -110,21 +187,25 @@
                 padding: 5px;
             }
 
-            .container {
-                padding-left: 10px;
-                padding-right: 10px;
+            .tariff-card-content ul {
+                padding-left: 20px;
+                text-align: left;
+            }
+
+            .elementor-image img {
+                max-width: 80%;
+                height: auto;
             }
         }
-
     </style>
 
     <div class="container my-5">
-        <h2 class="text-center">Вантажоперевезення Київ - перевезення вантажів недорого:</h2>
+        <h2 class="text-center">Вантажоперевезення по Україні - перевезення вантажів недорого:</h2>
         <div class="tariff-card mt-4">
             <img src="{{ asset('images/logo5.jpg') }}" alt="Вантажник" />
             <div class="tariff-card-content">
                 <p class="orange-text"><strong>Вартість 1 години роботи вантажника:</strong></p>
-                <p><strong>Від 200 грн</strong></p>
+                <p><strong class="orange-text">Від 250 грн</strong></p>
                 <p>Мінімальне замовлення: <strong>2 години</strong></p>
                 <ul>
                     <li>Малогабаритні грузоперевезення</li>
@@ -180,7 +261,7 @@
                         </div>
                         <div class="elementor-element elementor-widget-heading">
                             <div class="elementor-widget-container">
-                                <h5 class="elementor-heading-title">500 грн</h5>
+                                <h5 class="elementor-heading-title">1000 грн</h5>
                             </div>
                         </div>
                     </div>
@@ -199,7 +280,7 @@
                         </div>
                         <div class="elementor-element elementor-widget-heading">
                             <div class="elementor-widget-container">
-                                <h5 class="elementor-heading-title">700 грн</h5>
+                                <h5 class="elementor-heading-title">1500 грн</h5>
                             </div>
                         </div>
                     </div>
@@ -218,7 +299,7 @@
                         </div>
                         <div class="elementor-element elementor-widget-heading">
                             <div class="elementor-widget-container">
-                                <h3 class="elementor-heading-title">900 грн</h3>
+                                <h3 class="elementor-heading-title">2000 грн</h3>
                             </div>
                         </div>
                     </div>
