@@ -105,33 +105,33 @@
         <div class="product-grid-item">
             <img src="images/korobki.jpg" alt="Картонный короб">
             <div>Картонний короб<br>400x400x300</div>
-            <div class="price">65 грн</div>
+            <div class="price">від 65 грн</div>
         </div>
         <div class="product-grid-item">
             <img src="images/Karton1.jpg" alt="Листовий картон">
             <div>Листовий картон<br>розмір 1*2 м.</div>
-            <div class="price">40 грн/лист</div>
+            <div class="price">від 40 грн/лист</div>
         </div>
         <div class="product-grid-item">
             <img src="images/gofrokarton.jpg" alt="Гофрокартон">
             <div>Гофрокартон<br>50 метров</div>
-            <div class="price">600 грн/рулон</div>
+            <div class="price">від 600 грн/рулон</div>
         </div>
         <div class="product-grid-item">
             <img src="images/plenka.jpg" alt="Пузырчатая пленка">
             <div>Пузырчатая пленка<br></div>
-            <div class="price">40 грн/погонний метр</div>
+            <div class="price">від 40 грн/погонний метр</div>
         </div>
         <div class="product-grid-item">
             <img src="images/strch.jpg" alt="Стрейч-плівка">
             <div>Стрейч-плівка<br></div>
-            <div class="price">300 грн/рулон</div>
+            <div class="price">від 300 грн/рулон</div>
             <div>(300 метрів)</div>
         </div>
         <div class="product-grid-item">
             <img src="images/skotch.jpg" alt="Скотч">
             <div>Скотч<br>100 метров</div>
-            <div class="price">80 грн/шт</div>
+            <div class="price">від 80 грн/шт</div>
         </div>
         <div class="product-grid-item">
             <img src="images/ugolki.jpeg" alt="Захисний картонний куточок">

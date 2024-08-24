@@ -79,7 +79,7 @@
 </style>
 
 <div class="container mt-5">
-    <h3 class="text-center">Залишити відгук</h3>
+    <h4 class="text-center">Залишити відгук</h4>
     <form id="reviewForm" action="{{ route('reviews') }}" method="POST" class="p-4 rounded shadow-sm bg-light">
         @csrf
         <div class="mb-3">
@@ -96,7 +96,7 @@
 
 <!-- Отображение отзывов -->
 <div class="container mt-5" id="reviews">
-    <h3 class="text-center">Відгуки</h3>
+    <h4 class="text-center">Відгуки</h4>
     <div class="row" id="reviewsContainer">
         @php
             $reviews = \App\Models\Review::all();
@@ -130,7 +130,7 @@
             e.preventDefault(); // Предотвращаем перезагрузку страницы
 
             $.ajax({
-                url: "{{ route('reviews') }}", // Убедитесь, что маршрут правильный
+                url: "/reviews", // Убедитесь, что маршрут правильный
                 method: "POST",
                 data: $(this).serialize(),
                 success: function(response) {
