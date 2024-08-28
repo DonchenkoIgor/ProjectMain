@@ -12,7 +12,6 @@
 
 
 
-
     <!-- Подключение стилей Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
@@ -56,6 +55,98 @@
         #phoneModal .modal-body a:hover {
             color: #f0f0f0; /* Цвет текста ссылок при наведении */
             text-decoration: underline; /* Подчеркивание при наведении */
+        }
+
+        .feedback-button {
+            display: block !important; /* Обеспечиваем видимость кнопки */
+            position: fixed;
+            z-index: 9999; /* Убедитесь, что кнопка находится выше других элементов */
+        }
+
+        @media (max-width: 576px) {
+            .feedback-button {
+                width: 60px;
+                height: 60px;
+                bottom: 15px; /* Увеличиваем отступ, если это необходимо для видимости */
+                right: 15px;
+            }
+        }
+
+        .contact-toggle-button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 50px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-toggle-button:hover {
+            background-color: #0056b3;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-toggle-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.5);
+        }
+        #contactToggle {
+            opacity: 0.7; /* Делает кнопку полупрозрачной */
+            transition: opacity 0.3s ease; /* Добавляет плавный переход для прозрачности */
+        }
+
+        #contactToggle:hover {
+            opacity: 1; /* При наведении кнопка становится полностью непрозрачной */
+        }
+
+        .contact-button {
+            position: fixed;
+            bottom: 0;
+            end: 0;
+            margin-bottom: 5rem;
+            margin-end: 1rem;
+            z-index: 1000;
+        }
+
+        .contact-options a {
+            display: block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            padding: 0;
+            background-color: transparent;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-options a:hover,
+        .contact-options a:focus {
+            background-color: transparent;
+            border: none;
+            box-shadow: none;
+        }
+
+        .contact-options img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-options a:hover img,
+        .contact-options a:focus img {
+            transform: scale(1.1);
+        }
+
+        #contactToggle {
+            display: block;
+        }
+
+        #closeContactOptions {
+            display: none;
         }
     </style>
 
@@ -102,7 +193,7 @@
 <main>
     @include('components.mainLogo')
     @yield('content')
-    <div class="feedback-button position-fixed bottom-0 end-0 mb-3 me-3">
+    <div class="feedback-button position-fixed" style="bottom: 20px; right: 16px">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#phoneModal">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
                 <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L.708 3.207a1.745 1.745 0 0 0-.36 1.934 17.568 17.568 0 0 0 5.168 6.745 17.568 17.568 0 0 0 6.745 5.168 1.745 1.745 0 0 0 1.934-.36l1.942-1.942a.678.678 0 0 0-.063-1.015l-2.494-1.497a.678.678 0 0 0-.82.062l-2.256 1.812a11.384 11.384 0 0 1-5.468-5.468l1.812-2.256a.678.678 0 0 0 .062-.82L3.654 1.328z"/>
@@ -119,18 +210,55 @@
                 </div>
                 <div class="modal-body">
                     <ul class="list-unstyled">
-                        <p><a href="tel:+380561231234">+380 (56) 123-12-34</a></p>
-                        <p><a href="tel:+380561231234">+380 (56) 123-12-34</a></p>
+                        <p><a href="tel:+380666431636">+380 (66) 643-16-36</a></p>
+                        <p><a href="tel:+380986422759">+380 (98) 642-27-59</a></p>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="contact-button position-fixed" style="bottom: 20px; right: 16px">
+        <button type="button" class="btn btn-primary contact-toggle-button" id="contactToggle">
+            Напишіть нам..
+        </button>
+        <div class="contact-options mt-2" id="contactOptions" style="display: none;">
+            <button type="button" class="btn btn-outline-danger" id="closeContactOptions" style="position: absolute; top: -40px; right: 6px;">
+                ✖
+            </button>
+            <a href="https://t.me/Perevozcikua" target="_blank" class="btn btn-outline-primary mb-2">
+                <img src="{{asset('/images/tg_new.png')}}" alt="Telegram" width="24" height="24">
+            </a>
+            <a href="viber://chat?number=+380666431636" target="_blank" class="btn btn-outline-primary">
+                <img src="{{asset('/images/viber.png')}}" alt="Viber" width="24" height="24">
+            </a>
+        </div>
+    </div>
 </main>
 @include('components.reviewPanel')
 @include('components.footer')
 
+<script>
+    document.getElementById('contactToggle').addEventListener('click', function() {
+        var options = document.getElementById('contactOptions');
+        var toggleButton = document.getElementById('contactToggle');
+        var closeButton = document.getElementById('closeContactOptions');
+
+        toggleButton.style.display = 'none';
+        options.style.display = 'block';
+        closeButton.style.display = 'block';
+    });
+
+    document.getElementById('closeContactOptions').addEventListener('click', function() {
+        var options = document.getElementById('contactOptions');
+        var toggleButton = document.getElementById('contactToggle');
+        var closeButton = document.getElementById('closeContactOptions');
+
+        toggleButton.style.display = 'block';
+        options.style.display = 'none';
+        closeButton.style.display = 'none';
+    });
+</script>
 
 </body>
 </html>
