@@ -5,7 +5,7 @@
     }
 
     .footer-top img {
-        max-height: 80px;
+        max-height: 140px;
         margin-bottom: 10px; /* Добавляем отступ снизу */
     }
 
@@ -106,7 +106,7 @@
     <div class="container">
         <div class="row">
             <div class="container my-5 footer-top">
-                <img src="{{ asset('images/logo_new.png') }}" alt="Вантажник">
+                <img src="{{ asset('images/perevozchik.png') }}" alt="Вантажник">
                 <div class="contact-info">
                     <div class="work-time">
                         <p><i class="fas fa-clock"></i> с 8:00 до 20:00, без вихідних</p>

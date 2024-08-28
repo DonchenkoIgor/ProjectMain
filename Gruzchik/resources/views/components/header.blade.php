@@ -12,7 +12,7 @@
         flex-wrap: wrap;
     }
     .logo img {
-        max-height: 80px;
+        max-height: 140px;
     }
     .contact-info {
         display: flex;
@@ -152,7 +152,7 @@
         <div class="header-top">
             <div class="logo">
                 <a href="{{ url('/') }}">
-                    <img src="{{ asset('images/logo_new.png') }}" alt="Вантажник">
+                    <img src="{{ asset('images/perevozchik.png') }}" alt="Вантажник">
                 </a>
             </div>
             <div class="contact-info">
@@ -160,8 +160,9 @@
                     <p><i class="fas fa-clock"></i> с 8:00 до 20:00, без вихідних</p>
                 </div>
                 <div class="contact-details">
-                    <p><a href="tel:+380561231234">+380 (56) 123-12-34</a></p>
-                    <p><a href="mailto:info@gruzchik.dp.ua">info@gruzchik.dp.ua</a></p>
+                    <p><a href="tel:+380666431636">+380 (66) 643-16-36</a></p>
+                    <p><a href="tel:+380986422759">+380 (98) 642-27-59</a></p>
+                    <p><a href="mailto:info@gruzchik.dp.ua">perevozcik240@gmail.com</a></p>
                 </div>
             </div>
             <div>
