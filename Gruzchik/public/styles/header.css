@@ -1,52 +1,157 @@
-.header-top {
-    display: flex;
-    justify-content: space-between; /* Это распределит пространство между логотипом и контактной информацией */
-    align-items: center;
-    padding: 10px 0;
-    background-color: #fff;
-    border-bottom: 1px solid #ccc;
+body {
+    font-family: Arial, sans-serif; /* Устанавливаем шрифт Arial или запасной sans-serif для всего тела документа */
 }
 
-.logo {
-    flex: 1; /* Это позволит логотипу занимать доступное пространство слева */
+.header-top {
+    display: flex; /* Используем Flexbox для выравнивания элементов в верхней части заголовка */
+    justify-content: space-between; /* Располагаем элементы с максимальным расстоянием между ними */
+    align-items: center; /* Вертикально центрируем элементы */
+    padding: 20px 0; /* Добавляем отступы сверху и снизу */
+    flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку при необходимости */
+}
+
+.logo img {
+    max-height: 140px; /* Ограничиваем максимальную высоту логотипа */
 }
 
 .contact-info {
-    flex: 2; /* Это позволит контактам занимать больше пространства справа, можно настроить по желанию */
-    text-align: right; /* Это выравнивает текст контактов вправо */
+    display: flex; /* Используем Flexbox для выравнивания элементов контактной информации */
+    flex-direction: column; /* Располагаем элементы контактной информации вертикально */
+    align-items: flex-end; /* Выравниваем элементы по правому краю */
+    margin-left: auto; /* Отодвигаем контактную информацию влево, занимая оставшееся пространство */
 }
 
 .contact-info p {
-    margin: 0;
-    color: #0059ff;
-}
-
-.contact-info p + p {
-    margin-top: 5px;
+    margin: 0; /* Убираем внешние отступы у абзацев */
+    line-height: 1.5; /* Устанавливаем высоту строки для лучшего восприятия текста */
 }
 
 .contact-info a {
-    color: #ea0d0d;
-    text-decoration: none;
+    text-decoration: none; /* Убираем подчеркивание у ссылок */
+    color: #333; /* Устанавливаем цвет текста ссылок */
 }
 
-.social-icons {
-    display: flex;
-    align-items: center;
-    margin-top: 10px; /* Отступ для иконок соцсетей */
+.fa-clock {
+    color: #ea0d0d; /* Устанавливаем красный цвет для иконки часов (Font Awesome) */
 }
 
-.social-icons a {
-    color: #ff7e00;
-    margin-right: 10px;
-    text-decoration: none;
+.work-time {
+    align-self: flex-start; /* Выравниваем элемент с рабочим временем по левому краю */
 }
 
 .order-button {
-    background-color: #ff7e00;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
+    background-color: #f3510c; /* Устанавливаем оранжевый цвет фона для кнопки заказа */
+    color: #fff; /* Устанавливаем белый цвет текста */
+    padding: 10px 20px; /* Добавляем внутренние отступы для кнопки */
+    text-decoration: none; /* Убираем подчеркивание у текста в кнопке */
+    border-radius: 5px; /* Закругляем углы кнопки */
+    cursor: pointer; /* Устанавливаем указатель курсора при наведении на кнопку */
+}
+
+@media (max-width: 768px) {
+    .header-top {
+        flex-direction: column; /* Переключаем на вертикальное расположение элементов при малых экранах */
+        align-items: center; /* Центрируем элементы на мобильных устройствах */
+    }
+
+    .contact-info {
+        align-items: center; /* Центрируем контактную информацию на мобильных устройствах */
+        text-align: center; /* Центрируем текст внутри контактной информации */
+        margin-left: 0; /* Убираем отступ слева на мобильных устройствах */
+    }
+
+    .order-button {
+        font-size: 14px; /* Уменьшаем размер шрифта на мобильных устройствах */
+        padding: 8px 16px; /* Уменьшаем внутренние отступы на мобильных устройствах */
+        margin-top: 20px; /* Добавляем отступ сверху для кнопки на мобильных устройствах */
+    }
+}
+
+@media (min-width: 769px) {
+    .contact-info {
+        margin-right: 20px; /* Добавляем отступ справа для контактной информации на больших экранах */
+    }
+}
+
+#orderModal .modal-content {
+    border-radius: 10px; /* Закругляем углы модального окна */
+    color: white; /* Устанавливаем белый цвет текста в модальном окне */
+    padding: 20px; /* Добавляем внутренние отступы */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Добавляем тень для модального окна */
+    background: linear-gradient(135deg, rgba(243, 128, 12, 0.8), rgba(255, 165, 0, 0.8)); /* Градиентный фон */
+    animation: slideIn 0.5s ease-out; /* Анимация появления модального окна */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px); /* Начальная позиция выше на 50px */
+        opacity: 0; /* Начальная прозрачность 0 */
+    }
+    to {
+        transform: translateY(0); /* Конечная позиция по оси Y */
+        opacity: 1; /* Конечная прозрачность 1 */
+    }
+}
+
+#orderModal .modal-header {
+    border-bottom: none; /* Убираем нижнюю границу у заголовка модального окна */
+}
+
+#orderModal .modal-title {
+    font-size: 24px; /* Увеличиваем размер шрифта заголовка */
+    color: white; /* Устанавливаем белый цвет заголовка */
+}
+
+#orderModal .btn-close {
+    filter: invert(100%); /* Инвертируем цвета, чтобы сделать кнопку закрытия белой */
+    transition: transform 0.3s; /* Анимация поворота при наведении */
+}
+
+#orderModal .btn-close:hover {
+    transform: rotate(90deg); /* Поворот кнопки закрытия при наведении на 90 градусов */
+}
+
+#orderModal .form-label {
+    color: white; /* Белый цвет текста для меток формы */
+}
+
+#orderModal .form-control {
+    background-color: #ffffff; /* Белый фон для полей ввода */
+    color: #000000; /* Черный текст в полях ввода */
+    border: 1px solid #ffffff; /* Белая рамка для полей ввода */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1); /* Тени для полей ввода */
+}
+
+#orderModal .form-control:focus {
+    background-color: #ffffff; /* Белый фон при фокусе */
+    color: #000000; /* Черный текст при фокусе */
+    border-color: #ffffff; /* Белая рамка при фокусе */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1); /* Тени при фокусе */
+}
+
+#orderModal .form-control:hover {
+    background-color: #ffffff; /* Белый фон при наведении */
+    color: #000000; /* Черный текст при наведении */
+    border-color: #ffffff; /* Белая рамка при наведении */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1); /* Тени при наведении */
+}
+
+#orderModal .btn-primary {
+    background-color: white; /* Белая кнопка */
+    color: #f57c00; /* Оранжевый текст */
+    border: none; /* Убираем границу */
+    font-weight: bold; /* Жирный текст */
+    padding: 10px 20px; /* Внутренние отступы для кнопки */
+    transition: background-color 0.3s, transform 0.2s; /* Переход цвета и положения при взаимодействии */
+}
+
+#orderModal .btn-primary:hover {
+    background-color: #ffe0b2; /* Светло-оранжевая кнопка при наведении */
+    color: #f57c00; /* Оранжевый текст при наведении */
+    transform: translateY(-2px); /* Поднимаем кнопку при наведении */
+}
+
+#orderModal .btn-primary:active {
+    transform: translateY(1px); /* Опускаем кнопку при нажатии */
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2); /* Добавляем внутреннюю тень при нажатии */
 }

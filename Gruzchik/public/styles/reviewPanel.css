@@ -1,0 +1,77 @@
+#reviewForm {
+    background-color: #ffffff; /* Белый фон для формы */
+    border-radius: 12px; /* Закругленные углы */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Тень вокруг формы */
+    padding: 25px; /* Внутренние отступы формы */
+    margin-top: 40px; /* Отступ сверху формы */
+}
+
+/* Заголовок формы */
+#reviewForm h3 {
+    margin-bottom: 25px; /* Отступ снизу заголовка */
+    font-weight: 600; /* Полужирное начертание */
+    color: #333; /* Темно-серый цвет текста */
+    font-size: 24px; /* Размер шрифта заголовка */
+}
+
+/* Стили для полей ввода и текста */
+#reviewForm .form-control {
+    border-radius: 8px; /* Более закругленные углы для полей ввода */
+    border: 1px solid #ddd; /* Легкая граница */
+    padding: 12px;
+    margin-bottom: 20px; /* Увеличение отступа снизу */
+    font-size: 16px; /* Увеличение размера шрифта */
+}
+
+/* Стили для полей ввода при фокусе */
+#reviewForm .form-control:focus {
+    border-color: #0056b3; /* Цвет границы при фокусе */
+    box-shadow: 0 0 0 0.2rem rgba(0, 86, 179, 0.25); /* Легкая тень при фокусе */
+}
+
+/* Стили для кнопки отправки */
+#reviewForm .btn-primary {
+    background-color: #0056b3; /* Темно-синий цвет кнопки */
+    border-color: #0056b3; /* Цвет границы кнопки */
+    border-radius: 8px; /* Закругленные углы кнопки */
+    padding: 14px; /* Внутренние отступы кнопки */
+    font-weight: 600; /* Полужирное начертание текста */
+    text-transform: uppercase; /* Преобразование текста в верхний регистр */
+    font-size: 16px; /* Размер шрифта кнопки */
+}
+
+/* Цвет кнопки при наведении */
+#reviewForm .btn-primary:hover {
+    background-color: #004494; /* Более темный синий цвет при наведении */
+    border-color: #003580; /* Более темная граница при наведении */
+}
+
+/* Стили для карточек отзывов */
+.review-item .card {
+    border-radius: 12px; /* Более закругленные углы карточек */
+    overflow: hidden; /* Обрезать содержимое карточек */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Более выраженная тень */
+    margin-bottom: 25px; /* Увеличение отступа снизу */
+    transition: transform 0.3s, box-shadow 0.3s; /* Плавный эффект при наведении */
+}
+
+/* Эффект при наведении на карточки */
+.review-item .card:hover {
+    transform: translateY(-5px); /* Поднимает карточку при наведении */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Более выраженная тень при наведении */
+}
+
+/* Стили для тела карточек */
+.review-item .card-body {
+    padding: 25px; /* Внутренние отступы для тела карточек */
+}
+
+/* Стили для даты отзыва */
+.review-item .card-text small {
+    display: block; /* Показать дату в отдельной строке */
+    color: #6c757d; /* Цвет текста */
+    font-size: 14px; /* Размер шрифта для даты */
+}
+.review-item .card-title {
+    font-weight: bold; /* Сделать текст жирным */
+}

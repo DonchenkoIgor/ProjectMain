@@ -1,18 +1,20 @@
+<!--  <link rel="stylesheet" href="{{ secure_asset('/styles/reviewPanel.css') }}"> -->
+
 <style>
     #reviewForm {
         background-color: #ffffff; /* Белый фон для формы */
-        border-radius: 12px; /* Более закругленные углы */
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Более выраженная тень */
-        padding: 25px;
-        margin-top: 40px;
+        border-radius: 12px; /* Закругленные углы */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Тень вокруг формы */
+        padding: 25px; /* Внутренние отступы формы */
+        margin-top: 40px; /* Отступ сверху формы */
     }
 
     /* Заголовок формы */
     #reviewForm h3 {
-        margin-bottom: 25px;
-        font-weight: 600;
-        color: #333;
-        font-size: 24px; /* Увеличение размера шрифта заголовка */
+        margin-bottom: 25px; /* Отступ снизу заголовка */
+        font-weight: 600; /* Полужирное начертание */
+        color: #333; /* Темно-серый цвет текста */
+        font-size: 24px; /* Размер шрифта заголовка */
     }
 
     /* Стили для полей ввода и текста */
@@ -33,18 +35,18 @@
     /* Стили для кнопки отправки */
     #reviewForm .btn-primary {
         background-color: #0056b3; /* Темно-синий цвет кнопки */
-        border-color: #0056b3;
-        border-radius: 8px;
-        padding: 14px;
-        font-weight: 600;
-        text-transform: uppercase;
-        font-size: 16px; /* Увеличение размера шрифта */
+        border-color: #0056b3; /* Цвет границы кнопки */
+        border-radius: 8px; /* Закругленные углы кнопки */
+        padding: 14px; /* Внутренние отступы кнопки */
+        font-weight: 600; /* Полужирное начертание текста */
+        text-transform: uppercase; /* Преобразование текста в верхний регистр */
+        font-size: 16px; /* Размер шрифта кнопки */
     }
 
     /* Цвет кнопки при наведении */
     #reviewForm .btn-primary:hover {
-        background-color: #004494; /* Темнее при наведении */
-        border-color: #003580;
+        background-color: #004494; /* Более темный синий цвет при наведении */
+        border-color: #003580; /* Более темная граница при наведении */
     }
 
     /* Стили для карточек отзывов */
@@ -64,7 +66,7 @@
 
     /* Стили для тела карточек */
     .review-item .card-body {
-        padding: 25px;
+        padding: 25px; /* Внутренние отступы для тела карточек */
     }
 
     /* Стили для даты отзыва */
@@ -76,6 +78,7 @@
     .review-item .card-title {
         font-weight: bold; /* Сделать текст жирным */
     }
+
 </style>
 
 <div class="container mt-5">
@@ -94,7 +97,7 @@
     </form>
 </div>
 
-<!-- Отображение отзывов -->
+
 <div class="container mt-5" id="reviews">
     <h4 class="text-center">Відгуки</h4>
     <div class="row" id="reviewsContainer">
@@ -127,10 +130,10 @@
 <script>
     $(document).ready(function() {
         $('#reviewForm').on('submit', function(e) {
-            e.preventDefault(); // Предотвращаем перезагрузку страницы
+            e.preventDefault();
 
             $.ajax({
-                url: "/reviews", // Убедитесь, что маршрут правильный
+                url: "/reviews",
                 method: "POST",
                 data: $(this).serialize(),
                 success: function(response) {
@@ -152,13 +155,13 @@
                     </div>
                 `);
 
-                    // Обновляем количество отзывов
+
                     var totalReviews = $('#reviewsContainer .review-item').length;
 
-                    // Отображаем только первые 3 отзыва
+
                     $('.review-item').hide().slice(0, 3).show();
 
-                    // Показать кнопку "Показати всі відгуки" если её нет и всего отзывов больше 3
+
                     if ($('#showMore').length === 0 && totalReviews > 3) {
                         $('#reviews').append(`
                         <div class="text-center mt-3">
@@ -168,7 +171,7 @@
                     }
                 },
                 error: function(xhr, status, error) {
-                    // Обработка ошибок
+
                     console.log('Ошибка при отправке отзыва: ' + error);
                 }
             });
@@ -179,11 +182,11 @@
             var isShowingAll = button.text().trim() === 'Сховати відгуки';
 
             if (isShowingAll) {
-                // Показать только первые 3 отзыва
+
                 $('.review-item').hide().slice(0, 3).show();
                 button.text('Показати всі відгуки');
             } else {
-                // Показать все отзывы
+
                 $('.review-item').show();
                 button.text('Сховати відгуки');
             }

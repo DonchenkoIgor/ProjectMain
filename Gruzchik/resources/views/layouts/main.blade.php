@@ -24,135 +24,154 @@
     <!-- Подключение Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <link rel="icon" href="{{ asset('images/logo_new.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('images/perevozchik.png') }}" type="image/png">
 
 
 
 
-    <style>
-        #phoneModal .modal-content {
-            background-color: rgba(255, 165, 0, 0.83); /* Полупрозрачный оранжевый фон */
-            border-radius: 10px; /* Закругленные углы */
-        }
+  <!--  <link rel="stylesheet" href="{{ asset('styles/main.css') }}"> -->
 
-        /* Стили для заголовка модального окна */
-        #phoneModal .modal-title {
-            color: white; /* Белый цвет текста */
-        }
+<style>
+    #phoneModal .modal-content {
+        background-color: rgba(255, 165, 0, 0.83); /* Полупрозрачный оранжевый фон */
+        border-radius: 10px; /* Закругленные углы */
+    }
 
-        /* Стили для кнопки закрытия */
-        #phoneModal .btn-close {
-            background-color: white; /* Белая кнопка закрытия */
-        }
+    /* Стили для заголовка модального окна */
+    #phoneModal .modal-title {
+        color: white; /* Белый цвет текста */
+    }
 
-        /* Стили для ссылок в модальном окне */
-        #phoneModal .modal-body a {
-            color: white; /* Белый цвет текста ссылок */
-            text-decoration: none; /* Убираем подчеркивание */
-        }
+    /* Стили для кнопки закрытия */
+    #phoneModal .btn-close {
+        background-color: white; /* Белая кнопка закрытия */
+    }
 
-        /* Дополнительно: изменение цвета кнопки при наведении (опционально) */
-        #phoneModal .modal-body a:hover {
-            color: #f0f0f0; /* Цвет текста ссылок при наведении */
-            text-decoration: underline; /* Подчеркивание при наведении */
-        }
+    /* Стили для ссылок в модальном окне */
+    #phoneModal .modal-body a {
+        color: white; /* Белый цвет текста ссылок */
+        text-decoration: none; /* Убираем подчеркивание */
+    }
 
+    /* Дополнительно: изменение цвета кнопки при наведении (опционально) */
+    #phoneModal .modal-body a:hover {
+        color: #f0f0f0; /* Цвет текста ссылок при наведении */
+        text-decoration: underline; /* Подчеркивание при наведении */
+    }
+
+    .feedback-button {
+        position: fixed; /* Фиксируем позицию кнопки относительно окна браузера */
+        z-index: 9999; /* Убедитесь, что кнопка находится выше других элементов */
+        bottom: 70px;
+        right: 16px;
+    }
+
+    .contact-toggle-button {
+        background-color: #007bff; /* Синий цвет фона кнопки */
+        border: none; /* Убираем границу кнопки */
+        color: white; /* Белый цвет текста кнопки */
+        padding: 10px 20px; /* Внутренние отступы кнопки */
+        font-size: 18px; /* Размер шрифта текста кнопки */
+        border-radius: 50px; /* Закругленные углы кнопки */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень под кнопкой */
+        transition: all 0.3s ease; /* Плавный переход для всех свойств */
+    }
+
+    .contact-toggle-button:hover {
+        background-color: #0056b3; /* Изменение цвета фона кнопки при наведении */
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Усиление тени при наведении */
+    }
+
+    .contact-toggle-button:focus {
+        outline: none; /* Убираем обводку при фокусе */
+        box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.5); /* Добавляем тень при фокусе */
+    }
+    #contactToggle {
+        opacity: 0.7; /* Делает кнопку полупрозрачной */
+        transition: opacity 0.3s ease; /* Добавляет плавный переход для прозрачности */
+    }
+
+    #contactToggle:hover {
+        opacity: 1; /* При наведении кнопка становится полностью непрозрачной */
+    }
+
+    .contact-button {
+        position: fixed; /* Фиксируем позицию кнопки относительно окна браузера */
+        bottom: 120px;
+        right: 16px;
+        z-index: 1000; /* Приоритет отображения кнопки над другими элементами */
+    }
+
+    .contact-options a {
+        display: block; /* Отображение ссылки как блочного элемента */
+        width: 50px; /* Ширина ссылки */
+        height: 50px; /* Высота ссылки */
+        border-radius: 50%; /* Круглая форма */
+        overflow: hidden; /* Обрезка содержимого, выходящего за границы ссылки */
+        padding: 0; /* Убираем внутренние отступы */
+        background-color: transparent; /* Прозрачный фон */
+        border: none; /* Убираем границу */
+        transition: background-color 0.3s ease; /* Плавный переход для изменения цвета фона */
+    }
+
+    .contact-options a:hover,
+    .contact-options a:focus {
+        background-color: transparent; /* Прозрачный фон при наведении или фокусе */
+        border: none; /* Без границы при наведении или фокусе */
+        box-shadow: none; /* Убираем тень при наведении или фокусе */
+    }
+
+    .contact-options img {
+        width: 100%; /* Изображение занимает всю ширину контейнера */
+        height: 100%; /* Изображение занимает всю высоту контейнера */
+        object-fit: cover; /* Изображение заполняет контейнер, сохраняя пропорции */
+        transition: transform 0.3s ease; /* Плавный переход для трансформаций */
+    }
+
+    .contact-options a:hover img,
+    .contact-options a:focus img {
+        transform: scale(1.1); /* Увеличение изображения при наведении или фокусе */
+    }
+
+    #contactToggle {
+        display: block; /* Отображение элемента как блочного */
+    }
+
+    #closeContactOptions {
+        display: none; /* Скрытие элемента */
+    }
+
+    @media (max-width: 768px) {
         .feedback-button {
-            display: block !important; /* Обеспечиваем видимость кнопки */
             position: fixed;
-            z-index: 9999; /* Убедитесь, что кнопка находится выше других элементов */
-        }
-
-        @media (max-width: 576px) {
-            .feedback-button {
-                width: 60px;
-                height: 60px;
-                bottom: 15px; /* Увеличиваем отступ, если это необходимо для видимости */
-                right: 15px;
-            }
-        }
-
-        .contact-toggle-button {
-            background-color: #007bff;
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            font-size: 18px;
-            border-radius: 50px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .contact-toggle-button:hover {
-            background-color: #0056b3;
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        .contact-toggle-button:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.5);
-        }
-        #contactToggle {
-            opacity: 0.7; /* Делает кнопку полупрозрачной */
-            transition: opacity 0.3s ease; /* Добавляет плавный переход для прозрачности */
-        }
-
-        #contactToggle:hover {
-            opacity: 1; /* При наведении кнопка становится полностью непрозрачной */
+            bottom: 85px; /* Понижаем позицию кнопки для телефонов и планшетов */
+            right: 10px; /* Уменьшаем отступ от правого края */
         }
 
         .contact-button {
             position: fixed;
-            bottom: 0;
-            end: 0;
-            margin-bottom: 5rem;
-            margin-end: 1rem;
-            z-index: 1000;
+            bottom: 135px; /* Понижаем позицию второй кнопки */
+            right: 10px; /* Уменьшаем отступ от правого края */
         }
+    }
 
-        .contact-options a {
-            display: block;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            overflow: hidden;
-            padding: 0;
-            background-color: transparent;
-            border: none;
-            transition: background-color 0.3s ease;
-        }
 
-        .contact-options a:hover,
-        .contact-options a:focus {
-            background-color: transparent;
-            border: none;
-            box-shadow: none;
-        }
-
-        .contact-options img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .contact-options a:hover img,
-        .contact-options a:focus img {
-            transform: scale(1.1);
-        }
-
-        #contactToggle {
-            display: block;
-        }
-
-        #closeContactOptions {
-            display: none;
-        }
-    </style>
+</style>
 
 
     <!-- Custom styles for this template -->
     <link href="product.css" rel="stylesheet">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16692505491">
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-16692505491');
+    </script>
 
 </head>
 <body>
@@ -193,7 +212,7 @@
 <main>
     @include('components.mainLogo')
     @yield('content')
-    <div class="feedback-button position-fixed" style="bottom: 20px; right: 16px">
+    <div class="feedback-button">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#phoneModal">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
                 <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L.708 3.207a1.745 1.745 0 0 0-.36 1.934 17.568 17.568 0 0 0 5.168 6.745 17.568 17.568 0 0 0 6.745 5.168 1.745 1.745 0 0 0 1.934-.36l1.942-1.942a.678.678 0 0 0-.063-1.015l-2.494-1.497a.678.678 0 0 0-.82.062l-2.256 1.812a11.384 11.384 0 0 1-5.468-5.468l1.812-2.256a.678.678 0 0 0 .062-.82L3.654 1.328z"/>
@@ -218,7 +237,7 @@
         </div>
     </div>
 
-    <div class="contact-button position-fixed" style="bottom: 20px; right: 16px">
+    <div class="contact-button">
         <button type="button" class="btn btn-primary contact-toggle-button" id="contactToggle">
             Напишіть нам..
         </button>

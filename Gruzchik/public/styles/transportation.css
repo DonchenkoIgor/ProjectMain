@@ -1,0 +1,112 @@
+.additional-spacing {
+    height: 40px; /* Высота отступа */
+}
+.transportation-move {
+    padding: 20px; /* Внутренние отступы для содержания */
+    background-color: #fff; /* Белый фон */
+    border-radius: 10px; /* Сглаженные углы */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень */
+    border: 1px solid #ddd; /* Граница */
+    max-width: 900px; /* Максимальная ширина */
+    margin: 0 auto; /* Центрирование */
+    color: #333; /* Цвет текста */
+}
+
+.transportation-move h2 {
+    font-size: 1.8rem; /* Размер шрифта заголовка */
+    color: #f3510c; /* Цвет заголовка */
+    font-weight: bold; /* Жирный шрифт */
+    margin-bottom: 1rem; /* Отступ снизу */
+}
+
+.transportation-move p {
+    font-size: 1rem; /* Размер шрифта абзаца */
+    margin-bottom: 1.5rem; /* Отступ снизу */
+}
+
+.transportation-move ul {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы */
+}
+
+.transportation-move ul li {
+    margin-bottom: 1rem; /* Отступ снизу */
+    position: relative; /* Для позиционирования маркера */
+    padding-left: 25px; /* Отступ слева для маркера */
+}
+
+.transportation-move ul li::before {
+    content: ""; /* Пустой контент для создания маркера */
+    display: inline-block; /* Вывод маркера как блочного элемента */
+    width: 10px; /* Ширина маркера */
+    height: 10px; /* Высота маркера */
+    background-color: #f3510c; /* Оранжевый цвет маркера */
+    position: absolute; /* Абсолютное позиционирование */
+    left: 0; /* Расположение маркера слева */
+    top: 50%; /* Расположение маркера по вертикали по центру */
+    transform: translateY(-50%); /* Центрирование маркера по вертикали */
+}
+
+.transportation-move a {
+    color: #1e90ff; /* Цвет ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.transportation-move a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+.tariffs-container {
+    padding: 0; /* Удалите внутренние отступы, если они не нужны */
+    background-color: transparent; /* Уберите фоновый цвет, чтобы сделать его прозрачным */
+    border: none; /* Удалите границу */
+    box-shadow: none; /* Удалите тень, если она есть */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Заголовок внутри контейнера */
+.tariffs-container h2 {
+    font-size: 2rem; /* Размер шрифта заголовка */
+    margin-bottom: 1rem; /* Отступ снизу */
+}
+
+/* Параграфы внутри контейнера */
+.tariffs-container p {
+    font-size: 1.125rem; /* Размер шрифта абзаца */
+    margin-bottom: 1.5rem; /* Отступ снизу */
+    color: #f3510c; /* Оранжевый цвет текста */
+}
+
+/* Стили для таблицы */
+.table-responsive {
+    overflow-x: auto; /* Добавляем горизонтальную прокрутку для таблицы на маленьких экранах */
+}
+
+.table {
+    border-collapse: collapse; /* Убирает промежутки между ячейками таблицы */
+}
+
+.table th, .table td {
+    border: 1px solid #ddd; /* Устанавливаем границу для ячеек таблицы */
+    padding: 12px; /* Внутренние отступы для ячеек */
+    vertical-align: middle; /* Вертикальное выравнивание содержимого */
+}
+
+/* Мобильные стили */
+@media (min-width: 768px) {
+    .tariffs-container h2 {
+        font-size: 2.5rem; /* Увеличение размера шрифта заголовка на больших экранах */
+    }
+
+    .tariffs-container p {
+        font-size: 1.25rem; /* Увеличение размера шрифта абзаца на больших экранах */
+    }
+}
+.highlighted {
+    background-color: #f8f9fa; /* Светлый фон */
+    border: 1px solid #ddd; /* Граница вокруг текста */
+    padding: 10px; /* Отступы вокруг текста */
+    border-radius: 5px; /* Скругленные углы */
+    font-weight: bold; /* Жирное начертание текста */
+    color: #333; /* Цвет текста */
+}

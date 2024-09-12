@@ -3,120 +3,124 @@
 @section('title', 'Завантаження та вивантаження')
 
 @section('content')
-    <style>
-        .image-container {
-            text-align: center; /* Центрирование содержимого по горизонтали */
-            width: 100%; /* Ширина контейнера на всю ширину блока */
-            padding: 0; /* Убираем внутренние отступы */
-            background: transparent; /* Прозрачный фон */
-            border: none; /* Убираем границу */
-            max-width: 900px; /* Максимальная ширина */
-            margin: 0 auto; /* Центрирование */
-        }
 
-        .image-container img {
-            width: 100%; /* Растягивание изображения на всю ширину контейнера */
-            height: auto; /* Автоматическая высота для сохранения пропорций */
-            border-radius: 0; /* Убираем скругление углов */
-            box-shadow: none; /* Убираем тень */
-        }
+  <!--  <link rel="stylesheet" href="{{ secure_asset('styles/loadingUnloading.css') }}"> -->
 
-        .additional-spacing {
-            height: 40px; /* Высота отступа */
-        }
+  <style>
+      .image-container {
+          text-align: center; /* Центрирование содержимого по горизонтали */
+          width: 100%; /* Ширина контейнера на всю ширину блока */
+          padding: 0; /* Убираем внутренние отступы */
+          background: transparent; /* Прозрачный фон */
+          border: none; /* Убираем границу */
+          max-width: 900px; /* Максимальная ширина */
+          margin: 0 auto; /* Центрирование */
+      }
 
-        .transportation-move {
-            padding: 20px;
-            background-color: #fff; /* Белый фон */
-            border-radius: 10px; /* Сглаженные углы */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень */
-            border: 1px solid #ddd; /* Граница */
-            max-width: 900px; /* Максимальная ширина */
-            margin: 0 auto; /* Центрирование */
-            color: #333; /* Цвет текста */
-        }
+      .image-container img {
+          width: 100%; /* Растягивание изображения на всю ширину контейнера */
+          height: auto; /* Автоматическая высота для сохранения пропорций */
+          border-radius: 0; /* Убираем скругление углов */
+          box-shadow: none; /* Убираем тень */
+      }
 
-        .transportation-move h2 {
-            font-size: 1.8rem; /* Размер шрифта заголовка */
-            color: #f3510c; /* Цвет заголовка */
-            font-weight: bold; /* Жирный шрифт */
-            margin-bottom: 1rem; /* Отступ снизу */
-        }
+      .additional-spacing {
+          height: 40px; /* Высота отступа */
+      }
 
-        .transportation-move p {
-            font-size: 1rem; /* Размер шрифта абзаца */
-            margin-bottom: 1.5rem; /* Отступ снизу */
-        }
+      .transportation-move {
+          padding: 20px; /* Внутренние отступы внутри блока */
+          background-color: #fff; /* Белый фон */
+          border-radius: 10px; /* Сглаженные углы */
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень */
+          border: 1px solid #ddd; /* Граница */
+          max-width: 900px; /* Максимальная ширина */
+          margin: 0 auto; /* Центрирование */
+          color: #333; /* Цвет текста */
+      }
 
-        .transportation-move ul {
-            list-style-type: none; /* Убираем маркеры списка */
-            padding: 0; /* Убираем отступы */
-        }
+      .transportation-move h2 {
+          font-size: 1.8rem; /* Размер шрифта заголовка */
+          color: #f3510c; /* Цвет заголовка */
+          font-weight: bold; /* Жирный шрифт */
+          margin-bottom: 1rem; /* Отступ снизу */
+      }
 
-        .transportation-move ul li {
-            margin-bottom: 1rem; /* Отступ снизу */
-            position: relative; /* Для позиционирования маркера */
-            padding-left: 25px; /* Отступ слева для маркера */
-        }
+      .transportation-move p {
+          font-size: 1rem; /* Размер шрифта абзаца */
+          margin-bottom: 1.5rem; /* Отступ снизу */
+      }
 
-        .transportation-move ul li::before {
-            content: "";
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background-color: #f3510c;
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-        }
+      .transportation-move ul {
+          list-style-type: none; /* Убираем маркеры списка */
+          padding: 0; /* Убираем отступы */
+      }
 
-        .transportation-move a {
-            color: #1e90ff; /* Цвет ссылок */
-            text-decoration: none; /* Убираем подчеркивание */
-        }
+      .transportation-move ul li {
+          margin-bottom: 1rem; /* Отступ снизу */
+          position: relative; /* Для позиционирования маркера */
+          padding-left: 25px; /* Отступ слева для маркера */
+      }
 
-        .transportation-move a:hover {
-            text-decoration: underline; /* Подчеркивание при наведении */
-        }
-        .highlighted-text {
-            background-color: #f0f8ff; /* Светло-синий фон */
-            border-left: 5px solid #f3510c; /* Синяя левая граница */
-            padding: 15px; /* Отступы внутри блока */
-            margin-bottom: 20px; /* Отступ снизу */
-            font-style: italic; /* Курсивный шрифт */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень */
-            border-radius: 8px; /* Скругление углов */
-        }
-        .header-text {
-            margin: 20px auto; /* Центрируем заголовок с отступом */
-            max-width: 900px; /* Максимальная ширина для центрирования */
-        }
+      .transportation-move ul li::before {
+          content: ""; /* Вставка пустого контента для маркера */
+          display: inline-block; /* Отображение маркера как встроенного блока */
+          width: 10px; /* Ширина маркера */
+          height: 10px; /* Высота маркера */
+          background-color: #f3510c; /* Цвет маркера */
+          position: absolute; /* Абсолютное позиционирование маркера */
+          left: 0; /* Маркер выравнивается по левому краю */
+          top: 50%; /* Вертикальное центрирование маркера */
+          transform: translateY(-50%); /* Центрирование маркера по вертикали */
+      }
 
-        .header-text h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #f3510c;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px; /* Отступ снизу */
-            line-height: 1.2; /* Плотность строк для лучшего восприятия */
-        }
-        .note-box {
-            padding: 15px;
-            background-color: #ffffff;
-            border: 1px dashed #1e90ff; /* Синяя пунктирная граница */
-            border-radius: 5px; /* Закругленные углы */
-            font-size: 1rem; /* Размер шрифта */
-            margin: 20px 0; /* Отступы сверху и снизу */
-            color: #000000; /* Цвет текста */
-            line-height: 1.5; /* Межстрочный интервал */
-        }
+      .transportation-move a {
+          color: #1e90ff; /* Цвет ссылок */
+          text-decoration: none; /* Убираем подчеркивание */
+      }
 
-        .note-box strong {
-            font-weight: bold; /* Полужирный текст */
-        }
-    </style>
+      .transportation-move a:hover {
+          text-decoration: underline; /* Подчеркивание при наведении */
+      }
+      .highlighted-text {
+          background-color: #f0f8ff; /* Светло-синий фон */
+          border-left: 5px solid #f3510c; /* Синяя левая граница */
+          padding: 15px; /* Отступы внутри блока */
+          margin-bottom: 20px; /* Отступ снизу */
+          font-style: italic; /* Курсивный шрифт */
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень */
+          border-radius: 8px; /* Скругление углов */
+      }
+      .header-text {
+          margin: 20px auto; /* Центрируем заголовок с отступом */
+          max-width: 900px; /* Максимальная ширина для центрирования */
+      }
+
+      .header-text h2 {
+          font-size: 1.5rem; /* Размер шрифта заголовка */
+          font-weight: 700; /* Жирность шрифта заголовка */
+          color: #f3510c; /* Цвет заголовка */
+          text-transform: uppercase; /* Преобразование текста заголовка в верхний регистр */
+          letter-spacing: 1px; /* Межбуквенный интервал заголовка */
+          margin-bottom: 20px; /* Нижний отступ для заголовка */
+          line-height: 1.2; /* Межстрочный интервал для заголовка */
+      }
+      .note-box {
+          padding: 15px; /* Внутренние отступы блока с заметкой */
+          background-color: #ffffff; /* Белый фон блока с заметкой */
+          border: 1px dashed #1e90ff; /* Пунктирная граница блока с заметкой */
+          border-radius: 5px; /* Закругление углов блока с заметкой */
+          font-size: 1rem; /* Размер шрифта текста в блоке с заметкой */
+          margin: 20px 0; /* Отступы сверху и снизу блока с заметкой */
+          color: #000000; /* Цвет текста блока с заметкой */
+          line-height: 1.5; /* Межстрочный интервал текста в блоке с заметкой */
+      }
+
+      .note-box strong {
+          font-weight: bold; /* Полужирный текст */
+      }
+
+  </style>
 
     <div class="additional-spacing"></div>
 

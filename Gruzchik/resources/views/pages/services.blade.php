@@ -3,85 +3,89 @@
 @section('title', 'Послуги')
 
 @section('content')
-    <style>
-        .service-card {
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
 
-        .service-card img {
-            width: 100%;
-            height: auto;
-        }
+  <!--  <link rel="stylesheet" href="{{ secure_asset('styles/services.css') }}"> -->
 
-        .service-card-content {
-            padding: 15px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            height: 100%; /* Устанавливаем высоту 100% для flex-контейнера */
-        }
+  <style>
+      .service-card {
+          background-color: #ffffff; /* Белый фон карточки */
+          border-radius: 8px; /* Закругленные углы */
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень вокруг карточки */
+          overflow: hidden; /* Скрываем содержимое, выходящее за границы */
+          transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавный переход для трансформации и тени */
+      }
 
-        .service-card h5 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-        }
+      .service-card img {
+          width: 100%; /* Ширина изображения равна ширине карточки */
+          height: auto; /* Автоматическая высота для сохранения пропорций */
+      }
 
-        .service-card p {
-            font-size: 0.875rem;
-            color: #6c757d;
-        }
+      .service-card-content {
+          padding: 15px; /* Внутренние отступы контента */
+          text-align: center; /* Центрирование текста */
+          display: flex; /* Используем Flexbox для размещения содержимого */
+          flex-direction: column; /* Выравниваем элементы по вертикали */
+          height: 100%; /* Высота flex-контейнера, равная 100% */
+      }
 
-        .order-button {
-            background-color: #f3510c;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            transition: background-color 0.3s ease;
-            text-decoration: none;
-        }
+      .service-card h5 {
+          font-size: 1.25rem; /* Размер шрифта заголовка */
+          margin-bottom: 0.75rem; /* Отступ снизу заголовка */
+      }
 
-        .order-button:hover {
-            background-color: #e0480b;
-        }
+      .service-card p {
+          font-size: 0.875rem; /* Размер шрифта абзаца */
+          color: #6c757d; /* Серая палитра текста */
+      }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
+      .order-button {
+          background-color: #f3510c; /* Оранжевый фон кнопки */
+          color: #fff; /* Белый цвет текста кнопки */
+          border: none; /* Убираем границу кнопки */
+          padding: 10px 20px; /* Внутренние отступы кнопки */
+          border-radius: 20px; /* Закругленные углы кнопки */
+          transition: background-color 0.3s ease; /* Плавный переход для изменения фона кнопки */
+          text-decoration: none; /* Убираем подчеркивание у ссылки */
+      }
 
-        .order-button-container {
-            margin-top: auto; /* Отталкиваем кнопку вниз */
-            padding-top: 20px;
-        }
+      .order-button:hover {
+          background-color: #e0480b;  /* Темно-оранжевый цвет при наведении */
+      }
 
-        @media (max-width: 768px) {
-            .service-card {
-                margin-bottom: 20px;
-            }
-        }
+      .service-card:hover {
+          transform: translateY(-10px); /* Поднимаем карточку при наведении */
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Более выраженная тень при наведении */
+      }
 
-        .additional-spacing {
-            height: 40px; /* Высота отступа */
-        }
+      .order-button-container {
+          margin-top: auto; /* Отталкиваем кнопку вниз */
+          padding-top: 20px; /* Отступ сверху внутри контейнера кнопки */
+      }
 
-        .orange-text {
-            font-family: 'Poppins', sans-serif;
-            color: #f3510c; /* Оранжевый цвет */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            font-weight: 700; /* Жирный шрифт */
-        }
-        .custom-link {
-            color: inherit; /* Устанавливаем цвет текста таким же, как у родительского элемента */
-            text-decoration: none; /* Убираем подчеркивание */
-            font-size: 1.25rem; /* Увеличиваем размер шрифта */
-            font-weight: bold; /* Делаем шрифт жирным */
-        }
-    </style>
+      @media (max-width: 768px) {
+          .service-card {
+              margin-bottom: 20px; /* Отступ снизу для карточек на мобильных устройствах */
+          }
+      }
+
+      .additional-spacing {
+          height: 40px; /* Высота отступа */
+      }
+
+      .orange-text {
+          font-family: 'Poppins', sans-serif; /* Шрифт Poppins */
+          color: #f3510c; /* Оранжевый цвет текста */
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Тень текста */
+          font-weight: 700; /* Жирное начертание текста */
+      }
+      .custom-link {
+          color: inherit; /* Устанавливаем цвет текста таким же, как у родительского элемента */
+          text-decoration: none; /* Убираем подчеркивание */
+          font-size: 1.25rem; /* Увеличиваем размер шрифта */
+          font-weight: bold; /* Делаем шрифт жирным */
+      }
+
+  </style>
 
     <div class="container my-5">
         <h2 class="text-center orange-text">Якісні послуги за доступними цінами. Працюємо по всій Україні</h2>
@@ -130,7 +134,7 @@
                     <img src="{{ asset('images/zavantazhennya.png') }}" alt="Завантаження та вивантаження">
                     <div class="service-card-content">
                         <a class="custom-link" href="{{route('loadingUnloading')}}">Завантаження та вивантаження</a>
-                        <p>Навантаження, розвантаження фур – одна з послуг, які пропонує команда фірми «Gruzchik». Ми проводимо всі види вантажних робіт незалежно від типу продукції.</p>
+                        <p>Навантаження, розвантаження фур – одна з послуг, які пропонує команда фірми «Perevozchik». Ми проводимо всі види вантажних робіт незалежно від типу продукції.</p>
                         <div class="order-button-container">
                             <a class="order-button" data-bs-toggle="modal" data-bs-target="#orderModal">ЗАМОВИТИ</a>
                         </div>

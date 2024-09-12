@@ -1,0 +1,92 @@
+.additional-spacing {
+    height: 40px; /* Высота отступа */
+}
+.office-move {
+    padding: 20px; /* Внутренние отступы вокруг содержимого */
+    background-color: #fff; /* Белый фон контейнера */
+    border-radius: 10px; /* Сглаженные углы контейнера */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень под контейнером */
+    border: 1px solid #ddd; /* Светло-серая граница контейнера */
+    max-width: 900px; /* Максимальная ширина контейнера */
+    margin: 0 auto; /* Центрирование контейнера по горизонтали */
+    color: #333; /* Цвет текста внутри контейнера */
+}
+
+.office-move h2 {
+    font-size: 1.8rem; /* Размер шрифта заголовка */
+    color: #f3510c; /* Цвет заголовка */
+    font-weight: bold; /* Жирный шрифт */
+    margin-bottom: 1rem; /* Отступ снизу */
+}
+
+.office-move p {
+    font-size: 1rem; /* Размер шрифта абзаца */
+    margin-bottom: 1.5rem; /* Отступ снизу */
+}
+
+.office-move ul {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы */
+}
+
+.office-move ul li {
+    margin-bottom: 1rem; /* Отступ снизу */
+    position: relative; /* Для позиционирования маркера */
+    padding-left: 25px; /* Отступ слева для маркера */
+}
+
+.office-move ul li::before {
+    content: ""; /* Пустой контент для псевдоэлемента */
+    display: inline-block; /* Отображение псевдоэлемента как блочный элемент */
+    width: 10px; /* Ширина маркера */
+    height: 10px; /* Высота маркера */
+    background-color: #f3510c; /* Цвет маркера */
+    position: absolute; /* Абсолютное позиционирование маркера */
+    left: 0; /* Расположение маркера слева */
+    top: 50%; /* Вертикальное выравнивание маркера по центру элемента списка */
+    transform: translateY(-50%); /* Центрирование маркера по вертикали */
+}
+
+.office-move a {
+    color: #0059ff; /* Цвет текста ссылки */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.text-block-container {
+    padding: 20px; /* Внутренние отступы внутри контейнера */
+    background-color: #f9f9f9; /* Светло-серый фон контейнера */
+    border-radius: 10px; /* Сглаженные углы контейнера */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень под контейнером */
+    margin: 20px 0; /* Вертикальные отступы сверху и снизу контейнера */
+    max-width: 800px; /* Максимальная ширина контейнера */
+    margin: 0 auto; /* Центрирование контейнера по горизонтали */
+}
+
+.text-block h2 {
+    font-size: 2rem; /* Размер шрифта заголовка */
+    font-weight: 700; /* Жирный шрифт заголовка */
+    color: #f3510c; /* Цвет заголовка */
+    text-transform: uppercase; /* Преобразование текста в верхний регистр */
+    margin-bottom: 1rem; /* Отступ снизу заголовка */
+    text-align: center; /* Выравнивание заголовка по центру */
+}
+
+.text-block p {
+    font-size: 1.125rem; /* Размер шрифта абзаца */
+    line-height: 1.6; /* Межстрочный интервал для лучшего восприятия текста */
+    color: #333; /* Цвет текста абзаца */
+    margin-bottom: 1.5rem; /* Отступ снизу абзаца */
+}
+
+.text-block-container::before {
+    content: ''; /* Пустой контент для псевдоэлемента */
+    display: block; /* Отображение псевдоэлемента как блочный элемент */
+    width: 50px; /* Ширина линии */
+    height: 4px; /* Высота линии */
+    background-color: #f3510c; /* Цвет линии */
+    margin: 0 auto 20px; /* Центрирование линии и отступ снизу */
+}
+.text-block-container a {
+    color: #0059ff; /* Цвет текста ссылки */
+    text-decoration: none; /* Убираем подчеркивание */
+}

@@ -3,163 +3,167 @@
 @section('title', 'Вивіз не потрібних речей')
 
 @section('content')
-    <style>
-        .additional-spacing {
-            height: 40px; /* Высота отступа */
-        }
-        .transportation-move {
-            padding: 20px;
-            background-color: #fff; /* Белый фон */
-            border-radius: 10px; /* Сглаженные углы */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень */
-            border: 1px solid #ddd; /* Граница */
-            max-width: 900px; /* Максимальная ширина */
-            margin: 0 auto; /* Центрирование */
-            color: #333; /* Цвет текста */
-        }
 
-        .transportation-move h2 {
-            font-size: 1.8rem; /* Размер шрифта заголовка */
-            color: #f3510c; /* Цвет заголовка */
-            font-weight: bold; /* Жирный шрифт */
-            margin-bottom: 1rem; /* Отступ снизу */
-        }
+  <!--  <link rel="stylesheet" href="{{ secure_asset('styles/removal.css') }}"> -->
 
-        .transportation-move p {
-            font-size: 1rem; /* Размер шрифта абзаца */
-            margin-bottom: 1.5rem; /* Отступ снизу */
-        }
+  <style>
+      .additional-spacing {
+          height: 40px; /* Высота отступа */
+      }
+      .transportation-move {
+          padding: 20px; /* Внутренние отступы внутри блока */
+          background-color: #fff; /* Белый фон */
+          border-radius: 10px; /* Сглаженные углы */
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень */
+          border: 1px solid #ddd; /* Граница */
+          max-width: 900px; /* Максимальная ширина */
+          margin: 0 auto; /* Центрирование */
+          color: #333; /* Цвет текста */
+      }
 
-        .transportation-move ul {
-            list-style-type: none; /* Убираем маркеры списка */
-            padding: 0; /* Убираем отступы */
-        }
+      .transportation-move h2 {
+          font-size: 1.8rem; /* Размер шрифта заголовка */
+          color: #f3510c; /* Цвет заголовка */
+          font-weight: bold; /* Жирный шрифт */
+          margin-bottom: 1rem; /* Отступ снизу */
+      }
 
-        .transportation-move ul li {
-            margin-bottom: 1rem; /* Отступ снизу */
-            position: relative; /* Для позиционирования маркера */
-            padding-left: 25px; /* Отступ слева для маркера */
-        }
+      .transportation-move p {
+          font-size: 1rem; /* Размер шрифта абзаца */
+          margin-bottom: 1.5rem; /* Отступ снизу */
+      }
 
-        .transportation-move ul li::before {
-            content: "";
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background-color: #f3510c;
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-        }
+      .transportation-move ul {
+          list-style-type: none; /* Убираем маркеры списка */
+          padding: 0; /* Убираем отступы */
+      }
 
-        .transportation-move a {
-            color: #1e90ff; /* Цвет ссылок */
-            text-decoration: none; /* Убираем подчеркивание */
-        }
+      .transportation-move ul li {
+          margin-bottom: 1rem; /* Отступ снизу */
+          position: relative; /* Для позиционирования маркера */
+          padding-left: 25px; /* Отступ слева для маркера */
+      }
 
-        .transportation-move a:hover {
-            text-decoration: underline; /* Подчеркивание при наведении */
-        }
-        .tariffs-container {
-            padding: 0; /* Удалите внутренние отступы, если они не нужны */
-            background-color: transparent; /* Уберите фоновый цвет, чтобы сделать его прозрачным */
-            border: none; /* Удалите границу */
-            box-shadow: none; /* Удалите тень, если она есть */
-            max-width: 900px;
-            margin: 0 auto;
-        }
+      .transportation-move ul li::before {
+          content: ""; /* Пустое содержимое для псевдоэлемента */
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          background-color: #f3510c; /* Оранжевый цвет для маркера */
+          position: absolute; /* Абсолютное позиционирование маркера */
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%); /* Центрирование маркера по вертикали */
+      }
 
-        /* Заголовок внутри контейнера */
-        .tariffs-container h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
+      .transportation-move a {
+          color: #1e90ff; /* Цвет ссылок */
+          text-decoration: none; /* Убираем подчеркивание */
+      }
 
-        /* Параграфы внутри контейнера */
-        .tariffs-container p {
-            font-size: 1.125rem;
-            margin-bottom: 1.5rem;
-            color: #f3510c;
-        }
+      .transportation-move a:hover {
+          text-decoration: underline; /* Подчеркивание при наведении */
+      }
+      .tariffs-container {
+          padding: 0; /* Удалите внутренние отступы, если они не нужны */
+          background-color: transparent; /* Уберите фоновый цвет, чтобы сделать его прозрачным */
+          border: none; /* Удалите границу */
+          box-shadow: none; /* Удалите тень, если она есть */
+          max-width: 900px;
+          margin: 0 auto;
+      }
 
-        /* Стили для таблицы */
-        .table-responsive {
-            overflow-x: auto;
-        }
+      /* Заголовок внутри контейнера */
+      .tariffs-container h2 {
+          font-size: 2rem; /* Размер шрифта заголовка */
+          margin-bottom: 1rem; /* Отступ снизу заголовка */
+      }
 
-        .table {
-            border-collapse: collapse; /* Убирает промежутки между ячейками таблицы */
-        }
+      /* Параграфы внутри контейнера */
+      .tariffs-container p {
+          font-size: 1.125rem; /* Размер шрифта абзацев */
+          margin-bottom: 1.5rem; /* Отступ снизу абзацев */
+          color: #f3510c; /* Оранжевый цвет текста абзацев */
+      }
 
-        .table th, .table td {
-            border: 1px solid #ddd; /* Устанавливает границу только для ячеек таблицы */
-            padding: 12px; /* Добавьте внутренние отступы для ячеек */
-            vertical-align: middle;
-        }
+      /* Стили для таблицы */
+      .table-responsive {
+          overflow-x: auto; /* Добавляет горизонтальную прокрутку для таблицы на маленьких экранах */
+      }
 
-        /* Мобильные стили */
-        @media (min-width: 768px) {
-            .tariffs-container h2 {
-                font-size: 2.5rem;
-            }
+      .table {
+          border-collapse: collapse; /* Убирает промежутки между ячейками таблицы */
+      }
 
-            .tariffs-container p {
-                font-size: 1.25rem;
-            }
-        }
-        .highlighted {
-            background-color: #f8f9fa; /* Светлый фон */
-            border: 1px solid #ddd; /* Граница вокруг текста */
-            padding: 10px; /* Отступы вокруг текста */
-            border-radius: 5px; /* Скругленные углы */
-            font-weight: bold; /* Жирное начертание текста */
-            color: #333; /* Цвет текста */
-        }
-        .header-text {
-            margin: 20px auto; /* Центрируем заголовок с отступом */
-            max-width: 900px; /* Максимальная ширина для центрирования */
-        }
+      .table th, .table td {
+          border: 1px solid #ddd; /* Светло-серая граница у ячеек таблицы */
+          padding: 12px; /* Внутренние отступы у ячеек таблицы */
+          vertical-align: middle; /* Вертикальное выравнивание содержимого ячеек по центру */
+      }
 
-        .header-text h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #f3510c;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px; /* Отступ снизу */
-            line-height: 1.2; /* Плотность строк для лучшего восприятия */
-        }
-        .note-box {
-            padding: 15px;
-            background-color: #ffffff;
-            border: 1px dashed #1e90ff; /* Синяя пунктирная граница */
-            border-radius: 5px; /* Закругленные углы */
-            font-size: 1rem; /* Размер шрифта */
-            margin: 20px 0; /* Отступы сверху и снизу */
-            color: #000000; /* Цвет текста */
-            line-height: 1.5; /* Межстрочный интервал */
-        }
+      /* Мобильные стили */
+      @media (min-width: 768px) {
+          .tariffs-container h2 {
+              font-size: 2.5rem; /* Увеличивает размер шрифта заголовка на больших экранах */
+          }
 
-        .note-box strong {
-            font-weight: bold; /* Полужирный текст */
-        }
-        .centered-text-container {
-            background-color: #f0f8ff; /* Светлый фон для выделения блока */
-            padding: 20px; /* Внутренние отступы */
-            border-radius: 10px; /* Скругление углов блока */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для глубины */
-            margin: 20px auto; /* Отступы сверху и снизу, авто для центрирования */
-            max-width: 800px; /* Максимальная ширина блока */
-            text-align: center; /* Центрирование текста */
-        }
+          .tariffs-container p {
+              font-size: 1.25rem; /* Увеличивает размер шрифта абзацев на больших экранах */
+          }
+      }
+      .highlighted {
+          background-color: #f8f9fa; /* Светлый фон */
+          border: 1px solid #ddd; /* Граница вокруг текста */
+          padding: 10px; /* Отступы вокруг текста */
+          border-radius: 5px; /* Скругленные углы */
+          font-weight: bold; /* Жирное начертание текста */
+          color: #333; /* Цвет текста */
+      }
+      .header-text {
+          margin: 20px auto; /* Центрируем заголовок с отступом */
+          max-width: 900px; /* Максимальная ширина для центрирования */
+      }
 
-        .centered-text-container p {
-            font-size: 18px; /* Размер шрифта */
-            line-height: 1.6; /* Высота строки для удобного чтения */
-            color: #333; /* Цвет текста */
-        }
-    </style>
+      .header-text h2 {
+          font-size: 1.5rem; /* Размер шрифта заголовка */
+          font-weight: 700; /* Жирный шрифт для заголовка */
+          color: #f3510c; /* Оранжевый цвет заголовка */
+          text-transform: uppercase; /* Преобразование текста заголовка в верхний регистр */
+          letter-spacing: 1px; /* Межбуквенный интервал 1 пиксель */
+          margin-bottom: 20px; /* Отступ снизу заголовка */
+          line-height: 1.2; /* Плотность строк для заголовка */
+      }
+      .note-box {
+          padding: 15px; /* Внутренние отступы у блока */
+          background-color: #ffffff; /* Белый фон для блока */
+          border: 1px dashed #1e90ff; /* Синяя пунктирная граница */
+          border-radius: 5px; /* Закругленные углы блока */
+          font-size: 1rem; /* Размер шрифта */
+          margin: 20px 0; /* Отступы сверху и снизу блока */
+          color: #000000; /* Цвет текста */
+          line-height: 1.5; /* Межстрочный интервал текста */
+      }
+
+      .note-box strong {
+          font-weight: bold; /* Полужирный текст */
+      }
+      .centered-text-container {
+          background-color: #f0f8ff; /* Светлый фон для выделения блока */
+          padding: 20px; /* Внутренние отступы */
+          border-radius: 10px; /* Скругление углов блока */
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для глубины */
+          margin: 20px auto; /* Отступы сверху и снизу, авто для центрирования */
+          max-width: 800px; /* Максимальная ширина блока */
+          text-align: center; /* Центрирование текста */
+      }
+
+      .centered-text-container p {
+          font-size: 18px; /* Размер шрифта */
+          line-height: 1.6; /* Высота строки для удобного чтения */
+          color: #333; /* Цвет текста */
+      }
+
+  </style>
 
     <div class="additional-spacing"></div>
 
