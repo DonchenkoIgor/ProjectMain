@@ -168,11 +168,6 @@
         }
     }
 
-    /* Выпадающее меню */
-    .dropdown-menu {
-        min-width: 200px;
-    }
-
     .navbar-nav .dropdown:hover .dropdown-menu {
         display: block;
     }
@@ -215,6 +210,7 @@
     .dropdown-menu {
         background-color: rgba(73, 80, 87, 0.8); /* Полупрозрачный фон для выпадающего меню */
         border: none; /* Удаление границы */
+        min-width: 200px;
     }
 
     .dropdown-item {
@@ -225,6 +221,33 @@
     .dropdown-item:hover {
         background-color: rgba(52, 58, 64, 0.6); /* Полупрозрачный фон при наведении на элемент */
         color: #f3510c; /* Цвет текста при наведении на элемент */
+    }
+
+    .dropdown-arrow {
+        display: none; /* Скрываем стрелочку по умолчанию */
+        border: solid #000; /* Цвет стрелочки */
+        border-width: 0 2px 2px 0; /* Размер стрелочки */
+        padding: 4px;
+        margin-left: 8px;
+        transform: rotate(45deg);
+        cursor: pointer; /* Курсор в виде руки для интерактивности */
+    }
+
+    /* Стили для отображения стрелочки на мобильных устройствах */
+    @media (max-width: 768px) {
+        .dropdown-arrow {
+            display: inline-block;
+        }
+
+        /* Скрыть меню по умолчанию */
+        #servicesMenu {
+            display: none;
+        }
+    }
+    @media (max-width: 768px) {
+        .offcanvas.offcanvas-top {
+            height: 37vh; /* Увеличение высоты для отображения всех пунктов */
+        }
     }
 </style>
 
@@ -243,8 +266,10 @@
                 <ul class="navbar-nav flex-grow-1 justify-content-between">
                     <li class="nav-item"><a class="nav-link" href="/">Головна</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="{{route('services')}}" id="servicesDropdown" role="button">Послуги</a>
-                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <a class="nav-link" href="{{route('services')}}" id="servicesDropdown" role="button">Послуги
+                            <span class="dropdown-arrow" id="servicesArrow"></span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown" id="servicesMenu">
                             <li><a class="dropdown-item" href="{{route('moving')}}">Офісний/квартирний переїзд</a></li>
                             <li><a class="dropdown-item" href="{{route('transportation')}}">Перевезення майна</a></li>
                             <li><a class="dropdown-item" href="{{route('removal')}}">Вивіз не потрібних речей</a></li>
@@ -275,3 +300,12 @@
 </div>
 <div class="product-device shadow-sm d-none d-md-block"></div>
 <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+
+<script>
+    $(document).ready(function() {
+        $('#servicesArrow').click(function(event) {
+            event.preventDefault();
+            $('#servicesMenu').toggle();
+        });
+    });
+</script>

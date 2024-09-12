@@ -3,100 +3,110 @@
 @section('title', 'Упаковка')
 
 @section('content')
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .product-container {
-            text-align: center;
-            margin: 0 auto;
-        }
-        .product-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        .product-subtitle {
-            font-size: 18px;
-            color: #888;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .product-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .product-grid-item {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 15px;
-            text-align: center;
-            width: 200px;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        .product-grid-item:hover {
-            background-color: rgba(0, 0, 0, 0.1);
-            transform: translateY(-5px);
-        }
-        .product-grid-item img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-        }
-        .product-grid-item .price {
-            color: #f00;
-            font-weight: bold;
-        }
-        .product-page-header {
-            margin-top: 60px;
-        }
 
-        .text-block-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+  <!--  <link rel="stylesheet" href="{{ secure_asset('styles/package.css') }}"> -->
 
-        .text-block {
-            max-width: 800px;
-            padding: 20px;
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
+  <style>
+      body {
+          font-family: Arial, sans-serif; /* Шрифт Arial и запасной шрифт sans-serif для всего текста на странице */
+      }
 
-        .text-block h2 {
-            color: #f3510c;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
+      .product-container {
+          text-align: center; /* Выравнивание текста и содержимого по центру внутри контейнера */
+          margin: 0 auto; /* Центрирование контейнера по горизонтали */
+      }
 
-        .text-block p {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            color: #333;
-        }
+      .product-title {
+          font-size: 24px; /* Размер шрифта заголовка продукта */
+          font-weight: bold; /* Жирный шрифт для заголовка */
+          margin-bottom: 10px; /* Отступ снизу заголовка */
+          text-align: center; /* Выравнивание заголовка по центру */
+      }
 
-        @media (min-width: 768px) {
-            .text-block h2 {
-                font-size: 2.5rem;
-            }
+      .product-subtitle {
+          font-size: 18px; /* Размер шрифта подзаголовка продукта */
+          color: #888; /* Цвет подзаголовка (серый) */
+          margin-bottom: 20px; /* Отступ снизу подзаголовка */
+          text-align: center; /* Выравнивание подзаголовка по центру */
+      }
 
-            .text-block p {
-                font-size: 1.125rem;
-            }
-        }
-        .additional-spacing {
-            height: 20px; /* Высота отступа */
-        }
+      .product-grid {
+          display: flex; /* Использование Flexbox для сетки продуктов */
+          flex-wrap: wrap; /* Позволяет элементам переходить на следующую строку при необходимости */
+          justify-content: center; /* Выравнивание элементов по центру по горизонтали */
+          gap: 20px; /* Отступ между элементами сетки */
+      }
 
-    </style>
+      .product-grid-item {
+          border: 1px solid #ddd; /* Светло-серая граница элемента сетки */
+          border-radius: 5px; /* Закругленные углы элемента */
+          padding: 15px; /* Внутренние отступы вокруг содержимого */
+          text-align: center; /* Выравнивание текста и содержимого по центру */
+          width: 200px; /* Ширина элемента сетки */
+          transition: background-color 0.3s, transform 0.3s; /* Плавный переход для фона и трансформации при наведении */
+      }
+      .product-grid-item:hover {
+          background-color: rgba(0, 0, 0, 0.1); /* Полупрозрачный черный фон при наведении */
+          transform: translateY(-5px); /* Поднимание элемента вверх на 5px при наведении */
+      }
+
+      .product-grid-item img {
+          max-width: 100%; /* Изображение не выходит за пределы контейнера */
+          height: auto; /* Автоматическая высота для сохранения пропорций изображения */
+          margin-bottom: 10px; /* Отступ снизу изображения */
+      }
+      .product-grid-item .price {
+          color: #f00; /* Цвет цены (красный) */
+          font-weight: bold; /* Жирный шрифт для цены */
+      }
+      .product-page-header {
+          margin-top: 60px; /* Отступ сверху для заголовка страницы продукта */
+      }
+
+      .text-block-container {
+          display: flex; /* Использование Flexbox для выравнивания содержимого */
+          justify-content: center; /* Выравнивание содержимого по центру по горизонтали */
+          align-items: center; /* Выравнивание содержимого по центру по вертикали */
+          padding: 20px; /* Внутренние отступы вокруг содержимого */
+      }
+
+      .text-block {
+          max-width: 800px; /* Максимальная ширина текстового блока */
+          padding: 20px; /* Внутренние отступы вокруг содержимого */
+          background-color: #f8f9fa; /* Светло-серый фон текстового блока */
+          border-radius: 10px; /* Закругленные углы текстового блока */
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень под текстовым блоком */
+          text-align: center; /* Выравнивание текста внутри блока по центру */
+      }
+
+      .text-block h2 {
+          color: #f3510c; /* Цвет заголовка текстового блока (оранжевый) */
+          font-size: 2rem; /* Размер шрифта заголовка текстового блока */
+          margin-bottom: 1rem; /* Отступ снизу заголовка */
+      }
+
+      .text-block p {
+          font-size: 1rem; /* Размер шрифта абзаца */
+          line-height: 1.6; /* Межстрочный интервал для лучшего восприятия текста */
+          margin-bottom: 1rem; /* Отступ снизу абзаца */
+          color: #333; /* Цвет текста абзаца (темно-серый) */
+      }
+
+      @media (min-width: 768px) {
+          /* Стили для экранов шириной 768px и более (обычно для планшетов и ПК) */
+          .text-block h2 {
+              font-size: 2.5rem; /* Увеличение размера шрифта заголовка на больших экранах */
+          }
+
+          .text-block p {
+              font-size: 1.125rem; /* Увеличение размера шрифта абзаца на больших экранах */
+          }
+      }
+      .additional-spacing {
+          height: 20px; /* Высота отступа */
+      }
+
+  </style>
 
 <div class="container product-page-header">
     <div class="product-title">Пакувальний матеріал</div>

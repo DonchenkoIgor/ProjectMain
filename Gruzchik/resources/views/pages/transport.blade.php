@@ -3,137 +3,141 @@
 @section('title', 'Транспорт')
 @section('description', 'Обери свій транспорт')
 @section('content')
-    <style>
-        .header-text {
-            margin: 20px auto;
-            max-width: 900px;
-        }
 
-        .orange-text {
-            font-family: 'Poppins', sans-serif;
-            color: #f3510c;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            font-weight: 700;
-        }
+  <!--  <link rel="stylesheet" href="{{ secure_asset('styles/transport.css') }}"> -->
 
-        .service-card {
-            display: flex; /* Используем Flexbox для управления расположением внутренних элементов */
-            flex-direction: column; /* Располагаем элементы вертикально */
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Увеличиваем тень для большего объема */
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 450px; /* Установите желаемую фиксированную высоту */
-            margin: 10px; /* Добавляем отступы между карточками */
-        }
+  <style>
+      .header-text {
+          margin: 20px auto; /* Центрируем текст и добавляем отступы сверху и снизу */
+          max-width: 900px; /* Устанавливаем максимальную ширину текста */
+      }
 
-        .service-card:hover {
-            transform: translateY(-10px); /* Увеличиваем эффект наведения */
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Увеличиваем тень при наведении */
-            border-color: #0056b3; /* Более насыщенный цвет при наведении */
-        }
+      .orange-text {
+          font-family: 'Poppins', sans-serif; /* Шрифт Poppins */
+          color: #f3510c; /* Оранжевый цвет текста */
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень текста для объема */
+          font-weight: 700; /* Жирный шрифт */
+      }
 
-        .service-card img {
-            max-width: 100%;
-            max-height: 200px;
-            width: auto;
-            height: auto;
-            object-fit: cover;
-            border-bottom: 1px solid #ddd;
-            display: block;
-            margin: 0 auto;
-            border-radius: 8px; /* Закругляем углы изображений */
-            transition: transform 0.3s ease; /* Добавляем плавную анимацию */
-        }
-        .service-card img:hover {
-            transform: scale(1.05); /* Легкое увеличение изображения при наведении */
-        }
+      .service-card {
+          display: flex; /* Flexbox для управления расположением внутренних элементов */
+          flex-direction: column; /* Располагаем элементы вертикально */
+          background-color: #ffffff; /* Белый фон карточки */
+          border-radius: 8px; /* Закругленные углы карточки */
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Увеличенная тень для большего объема */
+          overflow: hidden; /* Скрываем элементы, выходящие за пределы карточки */
+          transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавные переходы для трансформации и тени */
+          height: 450px; /* Фиксированная высота карточки */
+          margin: 10px; /* Отступы между карточками */
+      }
 
-        .service-card-content {
-            flex-grow: 1; /* Заставляем контент занимать оставшееся пространство */
-            padding: 10px;
-            display: flex; /* Flexbox для выравнивания содержимого */
-            flex-direction: column;
-            justify-content: space-between; /* Распределяем пространство внутри контента */
-            text-align: center;
-        }
+      .service-card:hover {
+          transform: translateY(-10px); /* Увеличиваем эффект наведения */
+          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Увеличиваем тень при наведении */
+          border-color: #0056b3; /* Более насыщенный цвет при наведении */
+      }
 
-        .service-card h3 {
-            font-size: 1rem;
-            margin-bottom: 10px;
-            color: #333;
-        }
+      .service-card img {
+          max-width: 100%; /* Изображение занимает всю ширину карточки */
+          max-height: 200px; /* Максимальная высота изображения */
+          width: auto; /* Автоматическая ширина для сохранения пропорций */
+          height: auto; /* Автоматическая высота для сохранения пропорций */
+          object-fit: cover; /* Изображение сохраняет свои пропорции и заполняет контейнер */
+          border-bottom: 1px solid #ddd; /* Нижняя граница изображения */
+          display: block; /* Блочный элемент */
+          margin: 0 auto; /* Центрируем изображение */
+          border-radius: 8px; /* Закругленные углы изображения */
+          transition: transform 0.3s ease; /* Плавная анимация при наведении */
+      }
+      .service-card img:hover {
+          transform: scale(1.05); /* Легкое увеличение изображения при наведении */
+      }
 
-        .service-card ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            color: #555;
-            font-size: 0.9rem;
-            flex-grow: 1;
-            position: relative; /* Необходимо для правильного позиционирования маркера */
-        }
+      .service-card-content {
+          flex-grow: 1; /* Контент занимает оставшееся пространство карточки */
+          padding: 10px; /* Внутренние отступы */
+          display: flex; /* Flexbox для управления содержимым */
+          flex-direction: column; /* Вертикальное расположение содержимого */
+          justify-content: space-between; /* Равномерное распределение содержимого по вертикали */
+          text-align: center; /* Центрирование текста */
+      }
 
-        .service-card ul li {
-            margin-bottom: 5px;
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            line-height: 1.3; /* Увеличиваем межстрочный интервал */
-            text-align: left; /* Выровнять текст по левому краю */
-            padding-left: 1.5em; /* Добавляем отступ, чтобы текст начинался ровно */
-        }
+      .service-card h3 {
+          font-size: 1rem; /* Размер шрифта заголовка */
+          margin-bottom: 10px; /* Отступ снизу */
+          color: #333; /* Цвет текста заголовка */
+      }
 
-        .service-card ul li::before {
-            content: "\2022"; /* Используем маркер для списка */
-            color: #007bff;
-            font-weight: bold;
-            position: absolute; /* Абсолютное позиционирование маркера */
-            left: 0; /* Сдвигаем маркер к левому краю */
-            font-size: 1rem; /* Размер маркера */
-        }
+      .service-card ul {
+          list-style-type: none; /* Убираем стандартные маркеры списка */
+          padding: 0; /* Убираем отступы внутри списка */
+          margin: 0; /* Убираем внешние отступы списка */
+          color: #555; /* Цвет текста списка */
+          font-size: 0.9rem; /* Размер шрифта списка */
+          flex-grow: 1; /* Список занимает оставшееся пространство */
+          position: relative; /* Позиционирование для правильного отображения маркеров */
+      }
 
-        .order-button-container {
-            width: 100%;
-            display: flex; /* Flexbox для контейнера кнопки */
-            align-items: flex-end; /* Выровнять кнопку по нижнему краю */
-        }
+      .service-card ul li {
+          margin-bottom: 5px; /* Отступ снизу для каждого элемента списка */
+          font-size: 0.8rem; /* Размер шрифта для элементов списка */
+          display: flex; /* Flexbox для выравнивания содержимого */
+          align-items: center; /* Вертикальное выравнивание содержимого */
+          line-height: 1.3; /* Межстрочный интервал */
+          text-align: left; /* Текст выровнен по левому краю */
+          padding-left: 1.5em; /* Отступ слева для текста, чтобы выровнять его с маркером */
+      }
 
-        .order-button-container .btn {
-            background-color: #007bff;
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 8px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            width: 100%;
-            text-align: center;
-        }
+      .service-card ul li::before {
+          content: "\2022"; /* Символ маркера списка */
+          color: #007bff; /* Синий цвет маркера */
+          font-weight: bold; /* Жирный маркер */
+          position: absolute; /* Абсолютное позиционирование маркера */
+          left: 0; /* Сдвигаем маркер к левому краю */
+          font-size: 1rem; /* Размер маркера */
+      }
 
-        .order-button-container .btn:hover {
-            background-color: #0056b3;
-            transform: translateY(-3px); /* Добавляем эффект при наведении */
-        }
+      .order-button-container {
+          width: 100%; /* Ширина контейнера кнопки */
+          display: flex; /* Flexbox для контейнера кнопки */
+          align-items: flex-end; /* Выровнять кнопку по нижнему краю */
+      }
 
-        @media (max-width: 767px) {
-            .service-card {
-                margin-bottom: 15px;
-            }
+      .order-button-container .btn {
+          background-color: #007bff; /* Синий фон кнопки */
+          color: #fff; /* Белый цвет текста кнопки */
+          padding: 8px 16px; /* Внутренние отступы кнопки */
+          border-radius: 8px; /* Закругленные углы кнопки */
+          transition: background-color 0.3s ease, transform 0.3s ease; /* Плавные переходы для фона и трансформации */
+          width: 100%; /* Кнопка занимает всю ширину контейнера */
+          text-align: center; /* Текст в кнопке центрирован */
+      }
 
-            .service-card h3 {
-                font-size: 1rem;
-            }
+      .order-button-container .btn:hover {
+          background-color: #0056b3; /* Более темный синий при наведении */
+          transform: translateY(-3px); /* Легкое поднятие кнопки при наведении */
+      }
 
-            .service-card ul li {
-                font-size: 0.8rem;
-            }
+      @media (max-width: 767px) {
+          .service-card {
+              margin-bottom: 15px; /* Отступ снизу для карточек на мобильных устройствах */
+          }
 
-            .order-button-container .btn {
-                padding: 6px 12px;
-                font-size: 0.8rem;
-            }
-        }
-    </style>
+          .service-card h3 {
+              font-size: 1rem;  /* Размер шрифта заголовка на мобильных устройствах */
+          }
+
+          .service-card ul li {
+              font-size: 0.8rem; /* Размер шрифта элементов списка на мобильных устройствах */
+          }
+
+          .order-button-container .btn {
+              padding: 6px 12px; /* Уменьшенные отступы для кнопки на мобильных устройствах */
+              font-size: 0.8rem; /* Уменьшенный размер шрифта кнопки на мобильных устройствах */
+          }
+      }
+
+  </style>
 
     <div class="header-text text-center orange-text">
         <h2>Наш транспорт</h2>

@@ -3,106 +3,110 @@
 @section('title', 'Переїзд')
 
 @section('content')
-    <style>
-        .additional-spacing {
-            height: 40px; /* Высота отступа */
-        }
-        .office-move {
-            padding: 20px;
-            background-color: #fff; /* Белый фон */
-            border-radius: 10px; /* Сглаженные углы */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень */
-            border: 1px solid #ddd; /* Граница */
-            max-width: 900px; /* Максимальная ширина */
-            margin: 0 auto; /* Центрирование */
-            color: #333; /* Цвет текста */
-        }
 
-        .office-move h2 {
-            font-size: 1.8rem; /* Размер шрифта заголовка */
-            color: #f3510c; /* Цвет заголовка */
-            font-weight: bold; /* Жирный шрифт */
-            margin-bottom: 1rem; /* Отступ снизу */
-        }
+  <!--  <link rel="stylesheet" href="{{ secure_asset('styles/moving.css') }}"> -->
 
-        .office-move p {
-            font-size: 1rem; /* Размер шрифта абзаца */
-            margin-bottom: 1.5rem; /* Отступ снизу */
-        }
+  <style>
+      .additional-spacing {
+          height: 40px; /* Высота отступа */
+      }
+      .office-move {
+          padding: 20px; /* Внутренние отступы вокруг содержимого */
+          background-color: #fff; /* Белый фон контейнера */
+          border-radius: 10px; /* Сглаженные углы контейнера */
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень под контейнером */
+          border: 1px solid #ddd; /* Светло-серая граница контейнера */
+          max-width: 900px; /* Максимальная ширина контейнера */
+          margin: 0 auto; /* Центрирование контейнера по горизонтали */
+          color: #333; /* Цвет текста внутри контейнера */
+      }
 
-        .office-move ul {
-            list-style-type: none; /* Убираем маркеры списка */
-            padding: 0; /* Убираем отступы */
-        }
+      .office-move h2 {
+          font-size: 1.8rem; /* Размер шрифта заголовка */
+          color: #f3510c; /* Цвет заголовка */
+          font-weight: bold; /* Жирный шрифт */
+          margin-bottom: 1rem; /* Отступ снизу */
+      }
 
-        .office-move ul li {
-            margin-bottom: 1rem; /* Отступ снизу */
-            position: relative; /* Для позиционирования маркера */
-            padding-left: 25px; /* Отступ слева для маркера */
-        }
+      .office-move p {
+          font-size: 1rem; /* Размер шрифта абзаца */
+          margin-bottom: 1.5rem; /* Отступ снизу */
+      }
 
-        .office-move ul li::before {
-            content: "";
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background-color: #f3510c;
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-        }
+      .office-move ul {
+          list-style-type: none; /* Убираем маркеры списка */
+          padding: 0; /* Убираем отступы */
+      }
 
-        .office-move a {
-            color: #0059ff; /* Цвет текста ссылки */
-            text-decoration: none; /* Убираем подчеркивание */
-        }
+      .office-move ul li {
+          margin-bottom: 1rem; /* Отступ снизу */
+          position: relative; /* Для позиционирования маркера */
+          padding-left: 25px; /* Отступ слева для маркера */
+      }
 
-        .text-block-container {
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 20px 0;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+      .office-move ul li::before {
+          content: ""; /* Пустой контент для псевдоэлемента */
+          display: inline-block; /* Отображение псевдоэлемента как блочный элемент */
+          width: 10px; /* Ширина маркера */
+          height: 10px; /* Высота маркера */
+          background-color: #f3510c; /* Цвет маркера */
+          position: absolute; /* Абсолютное позиционирование маркера */
+          left: 0; /* Расположение маркера слева */
+          top: 50%; /* Вертикальное выравнивание маркера по центру элемента списка */
+          transform: translateY(-50%); /* Центрирование маркера по вертикали */
+      }
 
-        .text-block h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #f3510c;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
+      .office-move a {
+          color: #0059ff; /* Цвет текста ссылки */
+          text-decoration: none; /* Убираем подчеркивание */
+      }
 
-        .text-block p {
-            font-size: 1.125rem;
-            line-height: 1.6;
-            color: #333;
-            margin-bottom: 1.5rem;
-        }
+      .text-block-container {
+          padding: 20px; /* Внутренние отступы внутри контейнера */
+          background-color: #f9f9f9; /* Светло-серый фон контейнера */
+          border-radius: 10px; /* Сглаженные углы контейнера */
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень под контейнером */
+          margin: 20px 0; /* Вертикальные отступы сверху и снизу контейнера */
+          max-width: 800px; /* Максимальная ширина контейнера */
+          margin: 0 auto; /* Центрирование контейнера по горизонтали */
+      }
 
-        .text-block-container::before {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 4px;
-            background-color: #f3510c;
-            margin: 0 auto 20px;
-        }
-        .text-block-container a {
-            color: #0059ff; /* Цвет текста ссылки */
-            text-decoration: none; /* Убираем подчеркивание */
-        }
-    </style>
+      .text-block h2 {
+          font-size: 2rem; /* Размер шрифта заголовка */
+          font-weight: 700; /* Жирный шрифт заголовка */
+          color: #f3510c; /* Цвет заголовка */
+          text-transform: uppercase; /* Преобразование текста в верхний регистр */
+          margin-bottom: 1rem; /* Отступ снизу заголовка */
+          text-align: center; /* Выравнивание заголовка по центру */
+      }
+
+      .text-block p {
+          font-size: 1.125rem; /* Размер шрифта абзаца */
+          line-height: 1.6; /* Межстрочный интервал для лучшего восприятия текста */
+          color: #333; /* Цвет текста абзаца */
+          margin-bottom: 1.5rem; /* Отступ снизу абзаца */
+      }
+
+      .text-block-container::before {
+          content: ''; /* Пустой контент для псевдоэлемента */
+          display: block; /* Отображение псевдоэлемента как блочный элемент */
+          width: 50px; /* Ширина линии */
+          height: 4px; /* Высота линии */
+          background-color: #f3510c; /* Цвет линии */
+          margin: 0 auto 20px; /* Центрирование линии и отступ снизу */
+      }
+      .text-block-container a {
+          color: #0059ff; /* Цвет текста ссылки */
+          text-decoration: none; /* Убираем подчеркивание */
+      }
+
+  </style>
 
     <div class="additional-spacing"></div>
 
     <div class="office-move">
         <h2>Офісний переїзд</h2>
-        <p>Послуги переїзду, які надає наша фірма «Gruzchik», гарантують оптимальний баланс ціна-якість для кожного нашого клієнта. Ми допоможемо Вам легко впоратися з мувінгом будь-якої складності і різних масштабів. Наша транспортна компанія пропонує Вам:</p>
+        <p>Послуги переїзду, які надає наша фірма «Perevozchik», гарантують оптимальний баланс ціна-якість для кожного нашого клієнта. Ми допоможемо Вам легко впоратися з мувінгом будь-якої складності і різних масштабів. Наша транспортна компанія пропонує Вам:</p>
         <ul>
             <li>оперативний відгук на дзвінок або онлайн заявку з подальшим консалтингом та оформленням переїзду;</li>
             <li>великий <a href="{{route('transport')}}">автопарк</a> спецтехніки, з яким легко та швидко впоратися з мувінгом будь-якої складності та варіативних масштабів;</li>

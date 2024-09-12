@@ -26,7 +26,7 @@ Route::group(['prefix'=> 'services'], function (){
     Route::get('/vivIz-nepotribnih-rechey', [\App\Http\Controllers\ServiceController::class, 'removal'])->name('removal');
     Route::get('/zavantazhennya-ta-vivantazhennya', [\App\Http\Controllers\ServiceController::class, 'loadingUnloading'])->name('loadingUnloading');
     Route::get('/vantazhne-taksi', [\App\Http\Controllers\ServiceController::class, 'cargoTaxi'])->name('cargoTaxi');
-    Route::get('/skladski-roboti', [\App\Http\Controllers\ServiceController::class, 'warehouseWork'])->name('warehouseWork');
+    Route::get('/vantazhniki', [\App\Http\Controllers\ServiceController::class, 'warehouseWork'])->name('warehouseWork');
     Route::get('/mizhmIski-perevezennya', [\App\Http\Controllers\ServiceController::class, 'international'])->name('international');
 });
 

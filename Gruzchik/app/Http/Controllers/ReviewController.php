@@ -14,11 +14,11 @@ class ReviewController extends Controller
             'clientMessage' => $request->input('clientMessage'),
         ]);
 
-        // Возвращаем отзыв с форматированной датой
+
         return response()->json([
             'clientName' => $review->clientName,
             'clientMessage' => $review->clientMessage,
-            'created_at' => $review->formatted_created_at, // Используем accessor
+            'created_at' => $review->formatted_created_at,
         ]);
     }
 }

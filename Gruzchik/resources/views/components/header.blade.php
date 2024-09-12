@@ -1,148 +1,162 @@
-
+<!--  <link rel="stylesheet" href="{{ secure_asset('/styles/header.css') }}"> -->
 
 <style>
     body {
-        font-family: Arial, sans-serif;
+        font-family: Arial, sans-serif; /* Устанавливаем шрифт Arial или запасной sans-serif для всего тела документа */
     }
+
     .header-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 0;
-        flex-wrap: wrap;
+        display: flex; /* Используем Flexbox для выравнивания элементов в верхней части заголовка */
+        justify-content: space-between; /* Располагаем элементы с максимальным расстоянием между ними */
+        align-items: center; /* Вертикально центрируем элементы */
+        padding: 20px 0; /* Добавляем отступы сверху и снизу */
+        flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку при необходимости */
     }
+
     .logo img {
-        max-height: 140px;
+        max-height: 140px; /* Ограничиваем максимальную высоту логотипа */
     }
+
     .contact-info {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        margin-left: auto;
+        display: flex; /* Используем Flexbox для выравнивания элементов контактной информации */
+        flex-direction: column; /* Располагаем элементы контактной информации вертикально */
+        align-items: flex-end; /* Выравниваем элементы по правому краю */
+        margin-left: auto; /* Отодвигаем контактную информацию влево, занимая оставшееся пространство */
     }
+
     .contact-info p {
-        margin: 0;
-        line-height: 1.5;
+        margin: 0; /* Убираем внешние отступы у абзацев */
+        line-height: 1.5; /* Устанавливаем высоту строки для лучшего восприятия текста */
     }
+
     .contact-info a {
-        text-decoration: none;
-        color: #333;
+        text-decoration: none; /* Убираем подчеркивание у ссылок */
+        color: #333; /* Устанавливаем цвет текста ссылок */
     }
+
     .fa-clock {
-        color: #0059ff;
+        color: #ea0d0d; /* Устанавливаем красный цвет для иконки часов (Font Awesome) */
     }
+
     .work-time {
-        align-self: flex-start;
+        align-self: flex-start; /* Выравниваем элемент с рабочим временем по левому краю */
     }
+
     .order-button {
-        background-color: #f3510c;
-        color: #fff;
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 5px;
-        cursor: pointer;
+        background-color: #f3510c; /* Устанавливаем оранжевый цвет фона для кнопки заказа */
+        color: #fff; /* Устанавливаем белый цвет текста */
+        padding: 10px 20px; /* Добавляем внутренние отступы для кнопки */
+        text-decoration: none; /* Убираем подчеркивание у текста в кнопке */
+        border-radius: 5px; /* Закругляем углы кнопки */
+        cursor: pointer; /* Устанавливаем указатель курсора при наведении на кнопку */
     }
+
     @media (max-width: 768px) {
         .header-top {
-            flex-direction: column;
-            align-items: center;
+            flex-direction: column; /* Переключаем на вертикальное расположение элементов при малых экранах */
+            align-items: center; /* Центрируем элементы на мобильных устройствах */
         }
+
         .contact-info {
-            align-items: center;
-            text-align: center;
-            margin-left: 0;
+            align-items: center; /* Центрируем контактную информацию на мобильных устройствах */
+            text-align: center; /* Центрируем текст внутри контактной информации */
+            margin-left: 0; /* Убираем отступ слева на мобильных устройствах */
         }
+
         .order-button {
-            font-size: 14px; /* Уменьшите размер шрифта */
-            padding: 8px 16px; /* Уменьшите внутренние отступы */
-            margin-top: 20px; /* Увеличьте отступ сверху для мобильных устройств */
+            font-size: 14px; /* Уменьшаем размер шрифта на мобильных устройствах */
+            padding: 8px 16px; /* Уменьшаем внутренние отступы на мобильных устройствах */
+            margin-top: 20px; /* Добавляем отступ сверху для кнопки на мобильных устройствах */
         }
     }
+
     @media (min-width: 769px) {
         .contact-info {
-            margin-right: 20px;
+            margin-right: 20px; /* Добавляем отступ справа для контактной информации на больших экранах */
         }
     }
+
     #orderModal .modal-content {
-        border-radius: 10px;
-        color: white;
-        padding: 20px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        background: linear-gradient(135deg, rgba(243, 128, 12, 0.8), rgba(255, 165, 0, 0.8));
-        animation: slideIn 0.5s ease-out;
+        border-radius: 10px; /* Закругляем углы модального окна */
+        color: white; /* Устанавливаем белый цвет текста в модальном окне */
+        padding: 20px; /* Добавляем внутренние отступы */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Добавляем тень для модального окна */
+        background: linear-gradient(135deg, rgba(243, 128, 12, 0.8), rgba(255, 165, 0, 0.8)); /* Градиентный фон */
+        animation: slideIn 0.5s ease-out; /* Анимация появления модального окна */
     }
 
     @keyframes slideIn {
         from {
-            transform: translateY(-50px);
-            opacity: 0;
+            transform: translateY(-50px); /* Начальная позиция выше на 50px */
+            opacity: 0; /* Начальная прозрачность 0 */
         }
         to {
-            transform: translateY(0);
-            opacity: 1;
+            transform: translateY(0); /* Конечная позиция по оси Y */
+            opacity: 1; /* Конечная прозрачность 1 */
         }
     }
 
     #orderModal .modal-header {
-        border-bottom: none; /* Убрать нижнюю границу */
+        border-bottom: none; /* Убираем нижнюю границу у заголовка модального окна */
     }
 
     #orderModal .modal-title {
-        font-size: 24px; /* Увеличить размер заголовка */
-        color: white; /* Белый заголовок */
+        font-size: 24px; /* Увеличиваем размер шрифта заголовка */
+        color: white; /* Устанавливаем белый цвет заголовка */
     }
 
     #orderModal .btn-close {
-        filter: invert(100%); /* Сделать кнопку закрытия белой */
-        transition: transform 0.3s;
+        filter: invert(100%); /* Инвертируем цвета, чтобы сделать кнопку закрытия белой */
+        transition: transform 0.3s; /* Анимация поворота при наведении */
     }
 
     #orderModal .btn-close:hover {
-        transform: rotate(90deg);
+        transform: rotate(90deg); /* Поворот кнопки закрытия при наведении на 90 градусов */
     }
 
     #orderModal .form-label {
-        color: white; /* Белый текст для меток */
+        color: white; /* Белый цвет текста для меток формы */
     }
 
     #orderModal .form-control {
         background-color: #ffffff; /* Белый фон для полей ввода */
         color: #000000; /* Черный текст в полях ввода */
-        border: 1px solid #ffffff; /* Белая рамка */
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
+        border: 1px solid #ffffff; /* Белая рамка для полей ввода */
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1); /* Тени для полей ввода */
     }
 
     #orderModal .form-control:focus {
         background-color: #ffffff; /* Белый фон при фокусе */
         color: #000000; /* Черный текст при фокусе */
         border-color: #ffffff; /* Белая рамка при фокусе */
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1); /* Тени при фокусе */
     }
+
     #orderModal .form-control:hover {
         background-color: #ffffff; /* Белый фон при наведении */
         color: #000000; /* Черный текст при наведении */
         border-color: #ffffff; /* Белая рамка при наведении */
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1); /* Тени при наведении */
     }
 
     #orderModal .btn-primary {
         background-color: white; /* Белая кнопка */
         color: #f57c00; /* Оранжевый текст */
-        border: none;
-        font-weight: bold;
-        padding: 10px 20px;
-        transition: background-color 0.3s, transform 0.2s;
+        border: none; /* Убираем границу */
+        font-weight: bold; /* Жирный текст */
+        padding: 10px 20px; /* Внутренние отступы для кнопки */
+        transition: background-color 0.3s, transform 0.2s; /* Переход цвета и положения при взаимодействии */
     }
 
     #orderModal .btn-primary:hover {
         background-color: #ffe0b2; /* Светло-оранжевая кнопка при наведении */
-        color: #f57c00;
-        transform: translateY(-2px);
+        color: #f57c00; /* Оранжевый текст при наведении */
+        transform: translateY(-2px); /* Поднимаем кнопку при наведении */
     }
 
     #orderModal .btn-primary:active {
-        transform: translateY(1px);
-        box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
+        transform: translateY(1px); /* Опускаем кнопку при нажатии */
+        box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2); /* Добавляем внутреннюю тень при нажатии */
     }
 </style>
 
@@ -152,7 +166,7 @@
         <div class="header-top">
             <div class="logo">
                 <a href="{{ url('/') }}">
-                    <img src="{{ asset('images/perevozchik.png') }}" alt="Вантажник">
+                    <img src="{{ asset('/images/perevozchik.png') }}" alt="Вантажник">
                 </a>
             </div>
             <div class="contact-info">
@@ -162,7 +176,7 @@
                 <div class="contact-details">
                     <p><a href="tel:+380666431636">+380 (66) 643-16-36</a></p>
                     <p><a href="tel:+380986422759">+380 (98) 642-27-59</a></p>
-                    <p><a href="mailto:info@gruzchik.dp.ua">perevozcik240@gmail.com</a></p>
+                    <p><a href="mailto:perev0zchik.ua1@gmail.com">perev0zchik.ua1@gmail.com</a></p>
                 </div>
             </div>
             <div>
@@ -235,26 +249,26 @@
                     var modal = bootstrap.Modal.getInstance(document.getElementById('orderModal'));
                     modal.hide();
 
-                    form.reset();  // Очищаем форму после успешной отправки
+                    form.reset();
 
-                    // Показать Toast уведомление
+
                     var successToast = new bootstrap.Toast(document.getElementById('successToast'));
                     successToast.show();
 
-                    // Удаляем все элементы и классы, которые могут блокировать сайт
+
                     setTimeout(function () {
                         document.querySelectorAll('.modal-backdrop').forEach(function (backdrop) {
                             backdrop.remove();
                         });
                         document.body.classList.remove('modal-open');
-                        document.body.style = ''; // Очищаем все inline-стили на body
+                        document.body.style = '';
 
-                        // Если модальное окно не закрыто, закрываем его
+
                         if (modal._isShown) {
                             modal.hide();
                         }
 
-                        // Убеждаемся, что фокус возвращен на body
+
                         document.activeElement.blur();
                     }, 500);
 

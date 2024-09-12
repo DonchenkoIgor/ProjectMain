@@ -1,0 +1,118 @@
+#phoneModal .modal-content {
+    background-color: rgba(255, 165, 0, 0.83); /* Полупрозрачный оранжевый фон */
+    border-radius: 10px; /* Закругленные углы */
+}
+
+/* Стили для заголовка модального окна */
+#phoneModal .modal-title {
+    color: white; /* Белый цвет текста */
+}
+
+/* Стили для кнопки закрытия */
+#phoneModal .btn-close {
+    background-color: white; /* Белая кнопка закрытия */
+}
+
+/* Стили для ссылок в модальном окне */
+#phoneModal .modal-body a {
+    color: white; /* Белый цвет текста ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+/* Дополнительно: изменение цвета кнопки при наведении (опционально) */
+#phoneModal .modal-body a:hover {
+    color: #f0f0f0; /* Цвет текста ссылок при наведении */
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+.feedback-button {
+    display: block !important; /* Обеспечиваем видимость кнопки */
+    position: fixed; /* Фиксируем позицию кнопки относительно окна браузера */
+    z-index: 9999; /* Убедитесь, что кнопка находится выше других элементов */
+}
+
+@media (max-width: 576px) {
+    .feedback-button {
+        width: 60px; /* Ширина кнопки на маленьких экранах */
+        height: 60px; /* Высота кнопки на маленьких экранах */
+        top: 740px; /* Расположение кнопки сверху на маленьких экранах */
+        right: 15px; /* Расположение кнопки справа на маленьких экранах */
+    }
+}
+
+.contact-toggle-button {
+    background-color: #007bff; /* Синий цвет фона кнопки */
+    border: none; /* Убираем границу кнопки */
+    color: white; /* Белый цвет текста кнопки */
+    padding: 10px 20px; /* Внутренние отступы кнопки */
+    font-size: 18px; /* Размер шрифта текста кнопки */
+    border-radius: 50px; /* Закругленные углы кнопки */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень под кнопкой */
+    transition: all 0.3s ease; /* Плавный переход для всех свойств */
+}
+
+.contact-toggle-button:hover {
+    background-color: #0056b3; /* Изменение цвета фона кнопки при наведении */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Усиление тени при наведении */
+}
+
+.contact-toggle-button:focus {
+    outline: none; /* Убираем обводку при фокусе */
+    box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.5); /* Добавляем тень при фокусе */
+}
+#contactToggle {
+    opacity: 0.7; /* Делает кнопку полупрозрачной */
+    transition: opacity 0.3s ease; /* Добавляет плавный переход для прозрачности */
+}
+
+#contactToggle:hover {
+    opacity: 1; /* При наведении кнопка становится полностью непрозрачной */
+}
+
+.contact-button {
+    position: fixed; /* Фиксируем позицию кнопки относительно окна браузера */
+    bottom: 0; /* Расположение кнопки внизу окна */
+    end: 0; /* Расположение кнопки справа  */
+    margin-bottom: 5rem; /* Отступ снизу */
+    margin-end: 1rem; /* Отступ справа */
+    z-index: 1000; /* Приоритет отображения кнопки над другими элементами */
+}
+
+.contact-options a {
+    display: block; /* Отображение ссылки как блочного элемента */
+    width: 50px; /* Ширина ссылки */
+    height: 50px; /* Высота ссылки */
+    border-radius: 50%; /* Круглая форма */
+    overflow: hidden; /* Обрезка содержимого, выходящего за границы ссылки */
+    padding: 0; /* Убираем внутренние отступы */
+    background-color: transparent; /* Прозрачный фон */
+    border: none; /* Убираем границу */
+    transition: background-color 0.3s ease; /* Плавный переход для изменения цвета фона */
+}
+
+.contact-options a:hover,
+.contact-options a:focus {
+    background-color: transparent; /* Прозрачный фон при наведении или фокусе */
+    border: none; /* Без границы при наведении или фокусе */
+    box-shadow: none; /* Убираем тень при наведении или фокусе */
+}
+
+.contact-options img {
+    width: 100%; /* Изображение занимает всю ширину контейнера */
+    height: 100%; /* Изображение занимает всю высоту контейнера */
+    object-fit: cover; /* Изображение заполняет контейнер, сохраняя пропорции */
+    transition: transform 0.3s ease; /* Плавный переход для трансформаций */
+}
+
+.contact-options a:hover img,
+.contact-options a:focus img {
+    transform: scale(1.1); /* Увеличение изображения при наведении или фокусе */
+}
+
+#contactToggle {
+    display: block; /* Отображение элемента как блочного */
+}
+
+#closeContactOptions {
+    display: none; /* Скрытие элемента */
+}

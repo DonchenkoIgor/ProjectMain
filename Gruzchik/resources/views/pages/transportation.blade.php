@@ -3,126 +3,130 @@
 @section('title', 'Перевезення майна')
 
 @section('content')
-    <style>
-        .additional-spacing {
-            height: 40px; /* Высота отступа */
-        }
-        .transportation-move {
-            padding: 20px;
-            background-color: #fff; /* Белый фон */
-            border-radius: 10px; /* Сглаженные углы */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень */
-            border: 1px solid #ddd; /* Граница */
-            max-width: 900px; /* Максимальная ширина */
-            margin: 0 auto; /* Центрирование */
-            color: #333; /* Цвет текста */
-        }
 
-        .transportation-move h2 {
-            font-size: 1.8rem; /* Размер шрифта заголовка */
-            color: #f3510c; /* Цвет заголовка */
-            font-weight: bold; /* Жирный шрифт */
-            margin-bottom: 1rem; /* Отступ снизу */
-        }
+  <!--  <link rel="stylesheet" href="{{ secure_asset('styles/transportation.css') }}"> -->
 
-        .transportation-move p {
-            font-size: 1rem; /* Размер шрифта абзаца */
-            margin-bottom: 1.5rem; /* Отступ снизу */
-        }
+  <style>
+      .additional-spacing {
+          height: 40px; /* Высота отступа */
+      }
+      .transportation-move {
+          padding: 20px; /* Внутренние отступы для содержания */
+          background-color: #fff; /* Белый фон */
+          border-radius: 10px; /* Сглаженные углы */
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень */
+          border: 1px solid #ddd; /* Граница */
+          max-width: 900px; /* Максимальная ширина */
+          margin: 0 auto; /* Центрирование */
+          color: #333; /* Цвет текста */
+      }
 
-        .transportation-move ul {
-            list-style-type: none; /* Убираем маркеры списка */
-            padding: 0; /* Убираем отступы */
-        }
+      .transportation-move h2 {
+          font-size: 1.8rem; /* Размер шрифта заголовка */
+          color: #f3510c; /* Цвет заголовка */
+          font-weight: bold; /* Жирный шрифт */
+          margin-bottom: 1rem; /* Отступ снизу */
+      }
 
-        .transportation-move ul li {
-            margin-bottom: 1rem; /* Отступ снизу */
-            position: relative; /* Для позиционирования маркера */
-            padding-left: 25px; /* Отступ слева для маркера */
-        }
+      .transportation-move p {
+          font-size: 1rem; /* Размер шрифта абзаца */
+          margin-bottom: 1.5rem; /* Отступ снизу */
+      }
 
-        .transportation-move ul li::before {
-            content: "";
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background-color: #f3510c;
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-        }
+      .transportation-move ul {
+          list-style-type: none; /* Убираем маркеры списка */
+          padding: 0; /* Убираем отступы */
+      }
 
-        .transportation-move a {
-            color: #1e90ff; /* Цвет ссылок */
-            text-decoration: none; /* Убираем подчеркивание */
-        }
+      .transportation-move ul li {
+          margin-bottom: 1rem; /* Отступ снизу */
+          position: relative; /* Для позиционирования маркера */
+          padding-left: 25px; /* Отступ слева для маркера */
+      }
 
-        .transportation-move a:hover {
-            text-decoration: underline; /* Подчеркивание при наведении */
-        }
-        .tariffs-container {
-            padding: 0; /* Удалите внутренние отступы, если они не нужны */
-            background-color: transparent; /* Уберите фоновый цвет, чтобы сделать его прозрачным */
-            border: none; /* Удалите границу */
-            box-shadow: none; /* Удалите тень, если она есть */
-            max-width: 900px;
-            margin: 0 auto;
-        }
+      .transportation-move ul li::before {
+          content: ""; /* Пустой контент для создания маркера */
+          display: inline-block; /* Вывод маркера как блочного элемента */
+          width: 10px; /* Ширина маркера */
+          height: 10px; /* Высота маркера */
+          background-color: #f3510c; /* Оранжевый цвет маркера */
+          position: absolute; /* Абсолютное позиционирование */
+          left: 0; /* Расположение маркера слева */
+          top: 50%; /* Расположение маркера по вертикали по центру */
+          transform: translateY(-50%); /* Центрирование маркера по вертикали */
+      }
 
-        /* Заголовок внутри контейнера */
-        .tariffs-container h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
+      .transportation-move a {
+          color: #1e90ff; /* Цвет ссылок */
+          text-decoration: none; /* Убираем подчеркивание */
+      }
 
-        /* Параграфы внутри контейнера */
-        .tariffs-container p {
-            font-size: 1.125rem;
-            margin-bottom: 1.5rem;
-            color: #f3510c;
-        }
+      .transportation-move a:hover {
+          text-decoration: underline; /* Подчеркивание при наведении */
+      }
+      .tariffs-container {
+          padding: 0; /* Удалите внутренние отступы, если они не нужны */
+          background-color: transparent; /* Уберите фоновый цвет, чтобы сделать его прозрачным */
+          border: none; /* Удалите границу */
+          box-shadow: none; /* Удалите тень, если она есть */
+          max-width: 900px;
+          margin: 0 auto;
+      }
 
-        /* Стили для таблицы */
-        .table-responsive {
-            overflow-x: auto;
-        }
+      /* Заголовок внутри контейнера */
+      .tariffs-container h2 {
+          font-size: 2rem; /* Размер шрифта заголовка */
+          margin-bottom: 1rem; /* Отступ снизу */
+      }
 
-        .table {
-            border-collapse: collapse; /* Убирает промежутки между ячейками таблицы */
-        }
+      /* Параграфы внутри контейнера */
+      .tariffs-container p {
+          font-size: 1.125rem; /* Размер шрифта абзаца */
+          margin-bottom: 1.5rem; /* Отступ снизу */
+          color: #f3510c; /* Оранжевый цвет текста */
+      }
 
-        .table th, .table td {
-            border: 1px solid #ddd; /* Устанавливает границу только для ячеек таблицы */
-            padding: 12px; /* Добавьте внутренние отступы для ячеек */
-            vertical-align: middle;
-        }
+      /* Стили для таблицы */
+      .table-responsive {
+          overflow-x: auto; /* Добавляем горизонтальную прокрутку для таблицы на маленьких экранах */
+      }
 
-        /* Мобильные стили */
-        @media (min-width: 768px) {
-            .tariffs-container h2 {
-                font-size: 2.5rem;
-            }
+      .table {
+          border-collapse: collapse; /* Убирает промежутки между ячейками таблицы */
+      }
 
-            .tariffs-container p {
-                font-size: 1.25rem;
-            }
-        }
-        .highlighted {
-            background-color: #f8f9fa; /* Светлый фон */
-            border: 1px solid #ddd; /* Граница вокруг текста */
-            padding: 10px; /* Отступы вокруг текста */
-            border-radius: 5px; /* Скругленные углы */
-            font-weight: bold; /* Жирное начертание текста */
-            color: #333; /* Цвет текста */
-        }
+      .table th, .table td {
+          border: 1px solid #ddd; /* Устанавливаем границу для ячеек таблицы */
+          padding: 12px; /* Внутренние отступы для ячеек */
+          vertical-align: middle; /* Вертикальное выравнивание содержимого */
+      }
 
-    </style>
+      /* Мобильные стили */
+      @media (min-width: 768px) {
+          .tariffs-container h2 {
+              font-size: 2.5rem; /* Увеличение размера шрифта заголовка на больших экранах */
+          }
+
+          .tariffs-container p {
+              font-size: 1.25rem; /* Увеличение размера шрифта абзаца на больших экранах */
+          }
+      }
+      .highlighted {
+          background-color: #f8f9fa; /* Светлый фон */
+          border: 1px solid #ddd; /* Граница вокруг текста */
+          padding: 10px; /* Отступы вокруг текста */
+          border-radius: 5px; /* Скругленные углы */
+          font-weight: bold; /* Жирное начертание текста */
+          color: #333; /* Цвет текста */
+      }
+
+  </style>
+
     <div class="additional-spacing"></div>
 
     <div class="transportation-move">
         <h2>Перевезення холодильника з вантажниками</h2>
-        <p>Щоб перевозити побутову техніку, потрібен досвід та спеціальні навички. Будь-якого плану техніка вважається тендітним вантажем, який досить легко через недосвідченість пошкодити під час перевезення. Особливо нелегко самостійно транспортувати холодильник, оскільки він потребує особливих умов під час переміщення.Щоб не зіпсувати досить дорогу на сьогодні річ, слід звернутися до нашої компанії «Perevozchik». У нас оперативно та професійно здійснюється перевезення холодильника з вантажниками, тому що поодинці такого плану габаритну техніку не дозволяється переміщати та транспортувати горизонтально. <strong>Ми будь-якої миті готові недорого надати найкращу команду в місті для безпроблемного перевезення холодильника – звертайтесь!</strong></p>
+        <p>Наша компанія надає послуги з перевезення речей, <strong>гарантуючи надійність та безпеку на кожному етапі</strong>. Ми забезпечуємо акуратне пакування, швидке навантаження та доставку майна в строк. Ваша вигода – це професійна команда, індивідуальний підхід та доступні ціни. Довірте нам перевезення речей, і ми зробимо все, щоб ваш переїзд пройшов гладко і без зайвого клопоту.</strong></p>
     </div>
 
     <div class="my-5 tariffs-container text-center">
